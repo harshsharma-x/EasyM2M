@@ -12,17 +12,17 @@ const Navbar = () => {
             </li>
 
             <li className='flex items-center gap-2 cursor-pointer'>
-              <a href='#about'>Collection</a>
+              <a href='#about'>Product</a>
               <i class="fa-solid fa-caret-down"></i>
             </li>
 
             <li className='flex items-center gap-2 cursor-pointer'>
-              <a href='#contact'>Products</a>
+              <a href='#contact'>Services</a>
               <i class="fa-solid fa-caret-down"></i>
             </li>
 
             <li className='flex items-center gap-2 cursor-pointer'>
-              <a href='#contact'>Other Pages</a>
+              <a href='#contact'>Team</a>
               <i class="fa-solid fa-caret-down"></i>
             </li>
 
@@ -56,11 +56,17 @@ const Navbar = () => {
             <li className='flex items-center gap-2 cursor-pointer' >
               <i class="fa-regular fa-heart"></i>
               <a href='#contact'>Wishlist</a>
+              <div className='flex justify-center bg-white items-center rounded-full w-6 h-6'>0</div>
             </li>
 
             <li className='flex items-center gap-2 cursor-pointer'>
               <i class="fa-solid  fa-cart-shopping"></i>
               <a href='#contact'>Cart</a>
+              <div className='flex justify-center bg-white items-center rounded-full w-6 h-6'>
+                0
+              </div>
+
+
             </li>
           </ul>
         </div>
