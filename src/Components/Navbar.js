@@ -4,15 +4,22 @@ import Logo from '../Images/Logo.png'
 const Navbar = () => {
   return (
     <header className=''>
-      <nav className='flex bg-green-100 justify-around sticky top-0 z-[-20] mx-auto  w-full items-center p-4'>
+      <nav className='flex bg-white text-black  justify-around sticky top-0 z-[-20] mx-auto  w-full items-center p-4'>
+
+
+
+        <div className='h-10 w-10 border'>
+          <img src={Logo} alt="" />
+        </div>
+
         <div>
-          <ul className='flex space-x-4 text-sm'>
+          <ul className='flex space-x-4'>
             <li>
               <a href='#home'>Home</a>
             </li>
 
-            <li className='flex items-center gap-2 cursor-pointer'>
-              <a href='#about'>Product</a>
+            <li className='flex  items-center gap-2 cursor-pointer'>
+              <a href='#about'>Products</a>
               <i class="fa-solid fa-caret-down"></i>
             </li>
 
@@ -33,38 +40,31 @@ const Navbar = () => {
 
           </ul>
         </div>
-
-
-        <div className='h-10 w-10 border'>
-          <img src={Logo} alt="" />
-        </div>
-
-
         <div className='cursor-pointer'>
 
           <ul className='flex space-x-4'>
             <li className='flex items-center gap-2 cursor-pointer'>
               <i class="fa-solid fa-magnifying-glass ml-4"></i>
-              <a href='#home'>Search</a>
+              <a href='#home'></a>
             </li>
 
-            <li className='flex items-center gap-2 cursor-pointer'>
-              <i class="fa-regular fa-user"></i>
-              <a href='#about'>Account</a>
-            </li>
-
+           
             <li className='flex items-center gap-2 cursor-pointer' >
               <i class="fa-regular fa-heart"></i>
-              <a href='#contact'>Wishlist</a>
-              <div className='flex justify-center bg-white items-center rounded-full w-6 h-6'>0</div>
+              <a href='#contact'></a>
+             
             </li>
 
-            <li className='flex items-center gap-2 cursor-pointer'>
+            
+
+            <li className='flex rounded-full items-center gap-2 cursor-pointer hover:bg-transparent-100'>
               <i class="fa-solid  fa-cart-shopping"></i>
-              <a href='#contact'>Cart</a>
-              <div className='flex justify-center bg-white items-center rounded-full w-6 h-6'>
-                0
-              </div>
+              <a href='#contact'></a>
+             
+              <li className='flex items-center gap-2 cursor-pointer'>
+            <i class="fa-solid fa-sliders"></i>
+              <a href='#about'></a>
+            </li>
 
 
             </li>
