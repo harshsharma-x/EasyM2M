@@ -1,96 +1,114 @@
 import React, { useState } from "react";
 import Logo from "../assets/Images/logos/Logo.png";
-
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openDropDownMenu, setOpenDropDown] = useState(null);
+  const handleToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
+  const handleToggleDropDownMenu = (dropDownName) => {
+    setOpenDropDown(openDropDownMenu === dropDownName ? null : dropDownName);
+  };
+  const menuLinks = [
+    { title: "Home", path: "/", dropDownIcon: false },
+    { title: "About", path: "/about", dropDownIcon: false },
+    { title: "Products", path: "/products", dropDownIcon: true },
+    { title: "Services", path: "/services", dropDownIcon: true },
+    { title: "Contact", path: "/contact", dropDownIcon: false },
+    { title: "Team", path: "/team", dropDownIcon: false },
+    { title: "Blog", path: "/blog", dropDownIcon: false },
+  ];
+  const productsLinks = [
+    { title: "SmartKavach", path: "/products/product1" },
+    { title: "SmartKavach App", path: "/products/product2" },
+    { title: "EasyOs", path: "/products/product3" },
+    { title: "Product 4", path: "/products/product4" },
+    { title: "Product 5", path: "/products/product5" },
+  ];
 
+  const servicesLinks = [
+    { title: "Service 1", path: "/services/service1" },
+    { title: "Service 2", path: "/services/service2" },
+    { title: "Service 3", path: "/services/service3" },
+    { title: "Service 4", path: "/services/service4" },
+  ];
   return (
-    <header className="sticky top-0 z-10 w-full bg-white shadow-md">
-      <nav className="flex items-center justify-between p-4 mx-auto w-full max-w-7xl">
+    <header className="sticky top-0 z-10 w-full bg-white/30 shadow-md">
+      <nav className="center justify-between p-4 mx-auto w-full max-w-7xl relative">
         {/* Logo */}
         <div className="h-10 w-10">
           <img src={Logo} alt="Logo" className="w-full h-full" />
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-4">
-          <ul className="flex space-x-4">
-            <li>
-              <a href="#home" className="hover:text-gray-600">Home</a>
-            </li>
-            <li className="relative group">
-              <a href="#about" className="flex items-center gap-1 hover:text-gray-600">
-                Products <ion-icon name="chevron-down-outline"></ion-icon>
-              </a>
-              {/* Dropdown menu (example) */}
-              <div className="absolute w-screen left-0 hidden w-32 mt-6 bg-white border rounded shadow-lg group-hover:block">
-                <a href="#service1" className="block px-4 py-2 hover:bg-gray-100">SmartKavach</a>
-                <a href="#service2" className="block px-4 py-2 hover:bg-gray-100">SmartKavach App</a>
-                <a href="#service1" className="block px-4 py-2 hover:bg-gray-100">EasyOS</a>
-                <a href="#service2" className="block px-4 py-2 hover:bg-gray-100">Management</a>
-                
-              </div>
-            </li>
-            <li className="relative group">
-              <a href="#contact" className="flex items-center gap-1 hover:text-gray-600">
-                Services <ion-icon name="chevron-down-outline"></ion-icon>
-              </a>
-              {/* Dropdown menu (example) */}
-              <div className="absolute left-0 hidden w-screen mt-6 bg-white border rounded shadow-lg group-hover:block">
-                <a href="#service1" className="block px-4 py-2 hover:bg-gray-100">Watch 1</a>
-                <a href="#service2" className="block px-4 py-2 hover:bg-gray-100">Watch 2</a>
-                <a href="#service1" className="block px-4 py-2 hover:bg-gray-100">Watch 3</a>
-                <a href="#service2" className="block px-4 py-2 hover:bg-gray-100">Watch 4</a>
-                <a href="#service1" className="block px-4 py-2 hover:bg-gray-100">Watch 5</a>
-                <a href="#service2" className="block px-4 py-2 hover:bg-gray-100">Watch 6</a>
-                <a href="#service1" className="block px-4 py-2 hover:bg-gray-100">Watch 7</a>
-                <a href="#service2" className="block px-4 py-2 hover:bg-gray-100">Watch 8</a>
-              </div>
-            </li>
-            <li>
-              <a href="#team" className="hover:text-gray-600">Team</a>
-            </li>
-            <li>
-              <a href="#blog" className="hover:text-gray-600">Blog</a>
-            </li>
+        {/*  Menu */}
+        <div className="">
+          <ul
+            className={`flex lg:gap-12 md:gap-6 md:items-center flex-col md:flex-row md:static md:flex absolute items-start gap-6 right-[10%] top-14 bg-blue-200 md:bg-inherit px-16 py-2 md:px-0 md:py-0 rounded-lg opacity-80 md:opacity-100 ${
+              isMenuOpen ? "" : "hidden "
+            }`}>
+            {menuLinks.map((option) => {
+              const isDropDownOpen = openDropDownMenu === option.title;
+              return (
+                <li
+                  key={option.path}
+                  className="center justify-between w-full gap-1 md:gap-2 md:font-medium">
+                  <Link to={option.path}>{option.title}</Link>
+                  {option.dropDownIcon && (
+                    <div onClick={() => handleToggleDropDownMenu(option.title)} className=" cursor-pointer" title="view options">
+                      {isDropDownOpen ? (
+                        <i className="fa-solid fa-angle-up"></i>
+                      ) : (
+                        <i className="fa-solid fa-angle-down "></i>
+                      )}
+                    </div>
+                  )}
+                  {/* Dropdown for Products */}
+                  {option.title === "Products" && isDropDownOpen && (
+                    <motion.ul
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="absolute md:top-12 top-28  -left-32 md:left-auto bg-gray-100 shadow-lg rounded-md  py-2 px-2 opacity-80">
+                      {productsLinks.map((product) => (
+                        <motion.li
+                          whileHover={{ scale: 1.02 }}
+                          key={product.path}
+                          className="list-none md:list-disc  px-4 py-2 hover:bg-gray-200 w-44">
+                          <Link to={product.path}>{product.title}</Link>
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                  )}
+                  {/* Dropdown for Services */}
+                  {option.title === "Services" && isDropDownOpen && (
+                    <motion.ul
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="absolute md:top-12 top-40 -left-32 md:left-auto bg-gray-100 shadow-lg rounded-md  py-2 px-2 opacity-80 w-44">
+                      {servicesLinks.map((service) => (
+                        <motion.li
+                          whileHover={{ scale: 1.02 }}
+                          key={service.path}
+                          className="list-none md:list-disc  px-4 py-2 hover:bg-gray-200">
+                          <Link to={service.path}>{service.title}</Link>
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </li>
+              );
+            })}
           </ul>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="focus:outline-none">
-            <i className="fa-solid fa-sliders cursor-pointer"></i>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        <div className={`md:hidden ${isOpen ? "block" : "hidden"} absolute top-14 left-0 w-full bg-white shadow-md`}>
-          <ul className="flex flex-col items-center space-y-4 p-4">
-            <li>
-              <a href="#home" className="hover:text-gray-600">Home</a>
-            </li>
-            <li>
-              <a href="#about" className="hover:text-gray-600">Products</a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-gray-600">Services</a>\
-
-            </li>
-            <li>
-              <a href="#team" className="hover:text-gray-600">Team</a>
-            </li>
-            <li>
-              <a href="#blog" className="hover:text-gray-600">Blog</a>
-            </li>
-          </ul>
+          <div
+            onClick={handleToggleMenu}
+            className="md:hidden absolute right-36 top-6 ">
+            <i className="fa-solid fa-bars"></i>
+          </div>
         </div>
 
         {/* Icons */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className=" space-x-4">
           <i className="fa-solid fa-magnifying-glass cursor-pointer"></i>
           <i className="fa-regular fa-heart cursor-pointer"></i>
           <i className="fa-solid fa-cart-shopping cursor-pointer"></i>

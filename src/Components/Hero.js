@@ -14,7 +14,7 @@ const Hero = () => {
         <div className="text-3xl md:text-5xl lg:text-7xl center h-full justify-center px-2 text-gray-200 font-semibold">
           <div>
             IoT-Powered <span className="text-lime-400">Safety</span> , Anytime,
-            Anywhere
+            Anywhere.
           </div>
         </div>
       </div>
