@@ -4,14 +4,18 @@ import Founder from './Founder';  // Import your components here
 import Mentor from './Mentor';
 import Advisor from './Advisor';
 import Sales from './Sales';
+import PeopleIcon from '@mui/icons-material/People';
+import PersonIcon from '@mui/icons-material/Person';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import BusinessIcon from '@mui/icons-material/Business';
 
 const Teams = () => {
-    const [selected, setSelected] = useState(null); // State to track the selected item
+    const [selected, setSelected] = useState(0); // State to track the selected item
     const list = [
-        { title: 'Founders', path: "/Teams/Founders", component: <Founder /> },
-        { title: 'Mentors', path: "/Teams/Mentors", component: <Mentor /> },
-        { title: 'Advisor', path: "/Teams/Advisor", component: <Advisor /> },
-        { title: 'Sales', path: "/Teams/Sales", component: <Sales /> },
+        { title: 'Founders', icon: <PersonIcon />, component: <Founder /> },
+        { title: 'Mentors', icon: <SupervisorAccountIcon />, component: <Mentor /> },
+        { title: 'Advisor', icon: <PeopleIcon />, component: <Advisor /> },
+        { title: 'Sales', icon: <BusinessIcon />, component: <Sales /> },
     ];
 
     const handleClick = (index) => {
@@ -34,7 +38,9 @@ const Teams = () => {
                         whileTap={{ scale: 0.9 }}
                         onClick={() => handleClick(index)} // Click handler
                     >
+                        <div className='flex justify-center items-center'>{item.icon}</div>
                         {item.title}
+                        
                     </motion.div>
                 ))}
             </motion.div>
