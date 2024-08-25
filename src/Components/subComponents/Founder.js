@@ -36,11 +36,11 @@ const Founder = () => {
       {founders.map((founder, index) => (
         <div
           key={index}
-          className="p-6 my-4 w-80 md:h-[460px] bg-white border border-gray-200 rounded-lg shadow-lg transform hover:scale-105 hover:z-10  transition-transform duration-300 ease-in-out flex flex-col gap-2 lg:gap-3 overflow-hidden group">
+          className="p-6 my-4 w-80 md:h-[450px] bg-white border border-gray-200 rounded-lg shadow-lg transform hover:scale-105 hover:z-10  transition-transform duration-300 ease-in-out flex flex-col gap-2 lg:gap-3 overflow-hidden group">
           <img
             src={founder.image}
             alt={founder.name}
-            className="  w-32 h-32 rounded-full mx-auto border-4 border-blue-500 group-hover:animate-oval-motion"
+            className="w-32 min-h-32 rounded-full mx-auto border-4 border-blue-500 group-hover:animate-oval-motion"
           />
           <h2 className="mt-[5%]  text-xl font-semibold text-gray-800 text-center group-hover:animate-animateNames group-hover:w-min  group-hover:text-left">
             {founder.name}
