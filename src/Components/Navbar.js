@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Logo from "../assets/Images/logos/Logo.png";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropDownMenu, setOpenDropDown] = useState(null);
@@ -9,13 +9,13 @@ const Navbar = () => {
   const menuRef = useRef(null);
 
   const menuLinks = [
-    { title: "Home", path: "/", dropDownIcon: false },
-    { title: "About", path: "/about", dropDownIcon: false },
+    { title: "Home", path: "/#" },
+    { title: "About", path: "/#aboutAtLanding", dropDownIcon: true },
     { title: "Products", path: "/products", dropDownIcon: true },
     { title: "Services", path: "/services", dropDownIcon: true },
-    { title: "Contact", path: "/contact", dropDownIcon: false },
-    { title: "Team", path: "/team", dropDownIcon: false },
-    { title: "Blog", path: "/blog", dropDownIcon: false },
+    { title: "Blog", path: "/blog" },
+    { title: "Team", path: "/#team" },
+    { title: "Contact", path: "/#contact" },
   ];
   const productsLinks = [
     { title: "SmartKavach", path: "/products/product1" },
@@ -31,13 +31,17 @@ const Navbar = () => {
     { title: "Service 3", path: "/services/service3" },
     { title: "Service 4", path: "/services/service4" },
   ];
-
+  const aboutLinks = [
+    {title: "Read More...", path:"/about"}
+  ]
   const sidebarContents = [
     { title: "Login", path: "/login" },
     { title: "Register", path: "/register" },
     { title: "Wishlist", path: "/wishlist" },
     { title: "Checkout", path: "/checkout" },
   ];
+
+
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -101,14 +105,16 @@ const Navbar = () => {
                     key={option.path}
                     className="center justify-between w-full gap-1 md:gap-2 md:font-medium"
                     onMouseLeave={handleMouseLeave}>
-                    <Link to={option.path}>{option.title}</Link>
+                    <Link smooth to={option.path}>
+                      {option.title}
+                    </Link>
                     {option.dropDownIcon && (
                       <div
                         onClick={() => handleToggleDropDownMenu(option.title)}
                         onMouseOver={() =>
                           handleToggleDropDownMenu(option.title)
                         }
-                        className="cursor-pointer bg-gray-100/30 size-full rounded-b-[100%] rounded-sm animate center justify-center hover:bg-white w-4"
+                        className="cursor-pointer size-full rounded-b-[100%] rounded-sm animate center justify-center hover:bg-white w-4"
                         title="view options">
                         {isDropDownOpen ? (
                           <i className="fa-solid fa-angle-up"></i>
@@ -128,7 +134,7 @@ const Navbar = () => {
                           <motion.li
                             whileHover={{ scale: 1.02 }}
                             key={product.path}
-                            className="px-4 py-2 hover:bg-gray-200 w-44">
+                            className="px-4 py-2 hover:bg-gray-200 rounded-md">
                             <Link to={product.path}>{product.title}</Link>
                           </motion.li>
                         ))}
@@ -145,8 +151,25 @@ const Navbar = () => {
                           <motion.li
                             whileHover={{ scale: 1.02 }}
                             key={service.path}
-                            className="px-4 py-2 hover:bg-gray-200">
+                            className="px-4 py-2 hover:bg-gray-200 rounded-md">
                             <Link to={service.path}>{service.title}</Link>
+                          </motion.li>
+                        ))}
+                      </motion.ul>
+                    )}
+                        {/* Dropdown for about */}
+                        {option.title === "About" && isDropDownOpen && (
+                      <motion.ul
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        onMouseLeave={handleMouseLeave}
+                        className="absolute md:top-12 top-40 -left-32 md:left-auto bg-gray-100 shadow-lg rounded-md  py-2 px-2 opacity-80 w-44 font-normal">
+                        {aboutLinks.map((about) => (
+                          <motion.li
+                            whileHover={{ scale: 1.02 }} 
+                            key={about.path}
+                            className="px-4 py-2 hover:bg-gray-200 rounded-md">
+                            <Link to={about.path}>{about.title}</Link>
                           </motion.li>
                         ))}
                       </motion.ul>
