@@ -8,9 +8,9 @@ const Home = () => {
   return (
     <div id="/">
       <Hero />
-      <div id="aboutAtLanding" className="scroll-m-16">
-        {/* <AboutAtLanding /> */}
-      </div>
+      {/* <div id="aboutAtLanding" className="scroll-m-16">
+        <AboutAtLanding />
+      </div> */}
       <div id="team" className="scroll-m-16">
         <Teams />
       </div>
