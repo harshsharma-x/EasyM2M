@@ -49,7 +49,7 @@ const Advisor = () => {
       {advisors.map((advisor, index) => (
         <div
           key={index}
-          className="p-6 my-4 w-80 md:h-[460px] bg-white border border-gray-200 rounded-lg shadow-lg transform hover:scale-105 hover:z-10  transition-transform duration-300 ease-in-out flex flex-col gap-2 lg:gap-3 overflow-hidden group">
+          className="p-6 my-4 w-80 md:h-[450px] border border-gray-200 rounded-lg transform hover:scale-105 hover:z-10  transition-transform duration-300 ease-in-out flex flex-col gap-2 lg:gap-3 overflow-hidden group hover_gradient">
           <img
             src={advisor.image}
             alt={advisor.name}

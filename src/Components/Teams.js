@@ -20,7 +20,8 @@ const Teams = () => {
     };
 
     return (
-        <div className='flex flex-col items-center justify-center'>
+        <div className='flex flex-col items-center justify-center py-12'>
+            {/* <h1>OUR TEAM</h1> */}
             <motion.div 
                 className='h-20 w-[80%] gap-8 md:gap-12 lg:gap-20 items-center justify-center flex border-b mt-15'
                 initial={{ opacity: 0 }}
