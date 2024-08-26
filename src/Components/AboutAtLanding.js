@@ -37,9 +37,9 @@ const AboutAtLanding = () => {
     },
   ];
   return (
-    <div className=" py-24 relative gradient_aboutBg">
+    <div className=" py-12 lg:py-16 pb-20 lg:pb-24 relative gradient_aboutBg">
       {/* <img src={aboutBg} alt=""  className="size-full object-cover absolute -z-10"/> */}
-      <div className="w-fit text-4xl font-bold pl-12">
+      <div className="w-fit text-3xl lg:text-4xl font-bold pl-6 md:pl-10 lg:pl-12 ">
         <div className="fancy">About Us</div>
       </div>
       <div className="center flex-col p-6 h-full gap-12">
