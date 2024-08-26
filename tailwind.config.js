@@ -50,6 +50,11 @@ module.exports = {
           },
         },
       },
+      
+      boxShadow: {
+        'outline-light': '0px 0px 10px 1px #BBE9FF', // Custom box shadow for outline
+        'outline-focus': '0px 0px 10px 1px #4299e1', // Custom box shadow for focus state
+      },
     },
   },
   plugins: [],
