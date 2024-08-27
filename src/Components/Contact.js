@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 import Logo from "../assets/Images/logos/Logo.png";
 
 const Contact = () => {
-  const [result, setResult] = React.useState("");
+  const [result, setResult] = useState("");
+  const [currentFormField, setCurrentFormField] = useState("");
+  const [formValues, setFormValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    company: "",
+  });
 
+  const isFieldActive = (fieldName) => {
+    return currentFormField === fieldName || formValues[fieldName] !== "";
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
   const onSubmit = async (event) => {
     event.preventDefault();
     setResult("Sending....");
@@ -80,46 +99,145 @@ const Contact = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="w-full lg:w-1/2 p-6">
-              <input
-                type="text"
-                className="w-[80%] md:w-full py-4 px-6 mb-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
-                placeholder="First Name"
-                name="firstName"
-              />
-              <input
-                type="text"
-                className="w-[80%] md:w-full py-4 px-6 mb-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
-                placeholder="Email"
-                name="Email"
-              />
-              <input
-                type="text"
-                className="w-[80%] md:w-full py-4 px-6 md:mb-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
-                placeholder="Phone Number"
-                name="PhoneNumber"
-              />
+              className="w-full lg:w-1/2 p-6 center flex-col gap-4">
+              <div className="relative w-[80%] md:w-full lg:w-80 mb-6 ">
+                <input
+                  id="firstName"
+                  type="text"
+                  className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                  name="firstName"
+                  onFocus={() => setCurrentFormField("firstName")}
+                  onBlur={() => setCurrentFormField("")}
+                  value={formValues.firstName}
+                  onChange={handleInputChange}
+                />
+
+                <motion.label
+                  initial={{ opacity: 0.5, y: 0, x: 0 }}
+                  animate={
+                    isFieldActive("firstName")
+                      ? { opacity: 0.6, y: -40, x: -13 }
+                      : ""
+                  }
+                  transition={{ duration: 0.5 }}
+                  htmlFor="firstName"
+                  className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
+                  First Name
+                </motion.label>
+              </div>
+              <div className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
+                <input
+                  id="lastName"
+                  type="text"
+                  className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                  name="lastName"
+                  onFocus={() => setCurrentFormField("lastName")}
+                  onBlur={() => setCurrentFormField("")}
+                  value={formValues.lastName}
+                  onChange={handleInputChange}
+          
+                />
+
+                <motion.label
+                 initial={{ opacity: 0.5, y: 0, x: 0 }}
+                 animate={
+                   isFieldActive("lastName")
+                     ? { opacity: 0.6, y: -40, x: -13 }
+                     : ""
+                 }
+                  transition={{ duration: 0.5 }}
+                  htmlFor="lastName"
+                  className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
+                  Last Name
+                </motion.label>
+              </div>
+              <div className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
+                <input
+                  id="phoneNumber"
+                  type="text"
+                  className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                  name="phoneNumber"
+                  onFocus={() => setCurrentFormField("phoneNumber")}
+                  onBlur={() => setCurrentFormField("")}
+                  value={formValues.phoneNumber}
+                  onChange={handleInputChange}
+          
+                />
+
+                <motion.label
+                   initial={{ opacity: 0.5, y: 0, x: 0 }}
+                   animate={
+                     isFieldActive("phoneNumber")
+                       ? { opacity: 0.6, y: -40, x: -13 }
+                       : ""
+                   }
+                  transition={{ duration: 0.5 }}
+                  htmlFor="phoneNumber"
+                  className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
+                  Phone Number
+                </motion.label>
+              </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="w-full lg:w-1/2 p-6 md:pt-0 ">
-              <input
-                type="text"
-                className="w-[80%] md:w-full py-4 px-6 mb-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
-                placeholder="Last Name"
-                name="LastName"
-              />
-              <input
-                type="text"
-                className="w-[80%] md:w-full py-4 px-6 mb-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
-                placeholder="Company"
-                name="Company"
-              />
+              className="w-full lg:w-1/2 p-6 pt-0 center flex-col gap-4">
+              <div className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
+                <input
+                  id="email"
+                  type="text"
+                  className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                  name="email"
+                  onFocus={() => setCurrentFormField("email")}
+                  onBlur={() => setCurrentFormField("")}
+                  value={formValues.email}
+                  onChange={handleInputChange}
+          
+                />
+
+                <motion.label
+                 initial={{ opacity: 0.5, y: 0, x: 0 }}
+                 animate={
+                   isFieldActive("email")
+                     ? { opacity: 0.6, y: -40, x: -13 }
+                     : ""
+                 }
+                  transition={{ duration: 0.5 }}
+                  htmlFor="email"
+                  className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
+                  Email
+                </motion.label>
+              </div>
+              <div className="relative w-[80%] md:w-full lg:w-80 mb-6 ">
+                <input
+                  id="company"
+                  type="text"
+                  className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                  name="company"
+                  onFocus={() => setCurrentFormField("company")}
+                  onBlur={() => setCurrentFormField("")}
+                  value={formValues.company}
+                  onChange={handleInputChange}
+          
+                />
+
+                <motion.label
+                   initial={{ opacity: 0.5, y: 0, x: 0 }}
+                   animate={
+                     isFieldActive("company")
+                       ? { opacity: 0.6, y: -40, x: -13 }
+                       : ""
+                   }
+                  transition={{ duration: 0.5 }}
+                  htmlFor="company"
+                  className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
+                  Company
+                </motion.label>
+              </div>
               <select
-                className="w-[80%] md:w-full py-4 px-6 lg:text-xl font-semibold focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent  rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                className="w-[80%] md:w-full lg:w-80 py-4 px-4  font-semibold focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent  rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
                 name="Budget">
                 <option value="">Your Query Regarding</option>
                 <option value="sales">Sales</option>
@@ -141,17 +259,24 @@ const Contact = () => {
               name="message"
             />
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-full flex justify-center mt-4">
+            className="w-full flex items-center justify-center mt-4 gap-6">
             <motion.button
               whileTap={{ scale: 0.9 }}
               type="submit"
-              className="bg-black text-white py-3 px-6 rounded-md">
+              className="bg-black text-white py-3 px-6 rounded-md w-24">
               Submit
+            </motion.button>
+
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              type="reset"
+              title="clear fields"
+              className="bg-cyan-500 text-white py-3 px-6 rounded-md w-24">
+              Clear
             </motion.button>
           </motion.div>
         </motion.div>
