@@ -50,7 +50,15 @@ const Contact = () => {
       setResult(data.message);
     }
   };
-
+const handleClearButton=()=>{
+  setFormValues({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    company: "",
+  });
+}
   return (
     <div className="py-16 flex flex-wrap justify-evenly items-center gradient_contactBg">
       <motion.div
@@ -274,6 +282,7 @@ const Contact = () => {
             <motion.button
               whileTap={{ scale: 0.9 }}
               type="reset"
+              onClick={handleClearButton}
               title="clear fields"
               className="bg-cyan-500 text-white py-3 px-6 rounded-md w-24">
               Clear
