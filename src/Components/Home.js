@@ -3,6 +3,8 @@ import Hero from "./Hero";
 import Contact from "./Contact";
 import Team from "./Team";
 import AboutAtLanding from "./AboutAtLanding";
+import Services from "./Services";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -11,11 +13,17 @@ const Home = () => {
       <div id="aboutAtLanding" className="scroll-m-16">
         <AboutAtLanding />
       </div>
+      <div id="services" className="scroll-m-16">
+        <Services />
+      </div>
       <div id="team" className="scroll-m-16">
         <Team />
       </div>
       <div id="contact" className="scroll-m-16">
         <Contact />
+      </div>
+      <div id="footer" className="scroll-m-16">
+        <Footer />
       </div>
     </div>
   );
