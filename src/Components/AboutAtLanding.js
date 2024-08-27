@@ -75,7 +75,7 @@ const AboutAtLanding = () => {
                   <div
                     className={`absolute -bottom-[60%] group-hover:bottom-[0%] animate center flex-col p gap-4 justify-center md:justify-start bg-white/60 backdrop:blur-lg w-full px-1 pt-6 center rounded-tl-3xl h-40 md:h-56 lg:h-60`}>
                     <div
-                      className={`text-xs md:font-medium md:text-base tracking-tighter lg:text-base 2xl:text-base group-hover:underline group-hover:underline-offset-8 ${card.underlineColor}  animate`}>
+                      className={`text-xs md:font-medium md:text-base tracking-tighter lg:text-base 2xl:text-base group-hover:underline group-hover:underline-offset-4 ${card.underlineColor}  animate`}>
                       {card.title}
                       <i
                         className={`fa-solid fa-chevron-down block text-center group-hover:hidden`}></i>
