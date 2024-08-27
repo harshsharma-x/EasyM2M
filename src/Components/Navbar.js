@@ -12,7 +12,7 @@ const Navbar = () => {
     { title: "Home", path: "/#" },
     { title: "About", path: "/#aboutAtLanding", dropDownIcon: true },
     { title: "Products", path: "/products", dropDownIcon: true },
-    { title: "Services", path: "/services", dropDownIcon: true },
+    { title: "Services", path: "/#services", dropDownIcon: true },
     { title: "Blog", path: "/blog" },
     { title: "Team", path: "/#team" },
     { title: "Contact", path: "/#contact" },
