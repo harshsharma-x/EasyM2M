@@ -1,64 +1,208 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 import Logo from "../assets/Images/logos/Logo.png";
+import validator from "validator";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const Contact = () => {
-  const [result, setResult] = useState("");
   const [currentFormField, setCurrentFormField] = useState("");
-  const [formValues, setFormValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    company: "",
-  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [company, setCompany] = useState("");
 
   const isFieldActive = (fieldName) => {
-    return currentFormField === fieldName || formValues[fieldName] !== "";
+    return (
+      currentFormField === fieldName ||
+      {
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        company,
+      }[fieldName] !== ""
+    );
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
+
+    switch (name) {
+      case "firstName":
+        setFirstName(value);
+        break;
+      case "lastName":
+        setLastName(value);
+        break;
+      case "email":
+        setEmail(value);
+        break;
+      case "phoneNumber":
+        setPhoneNumber(value);
+        break;
+      case "company":
+        setCompany(value);
+        break;
+      default:
+        break;
+    }
+
+    // Run specific validation based on the field
+    let fieldError = {};
+    switch (name) {
+      case "firstName":
+        fieldError = validateFirstName(value);
+        break;
+      case "lastName":
+        fieldError = validateLastName(value);
+        break;
+      case "email":
+        fieldError = validateEmail(value);
+        break;
+      case "phoneNumber":
+        fieldError = validatePhoneNumber(value);
+        break;
+      case "company":
+        fieldError = validateCompany(value);
+        break;
+      default:
+        break;
+    }
+
+    setErrors(() => ({
+      ...fieldError,
     }));
   };
+
+  // Separate validation methods
+  const validateFirstName = (value) => {
+    const error = {};
+    if (!value.trim()) {
+      error.firstName = "First name is required";
+    } else if (!/^[a-zA-Z\s]+$/.test(value)) {
+      error.firstName = "Invalid First Name";
+    }
+    return error;
+  };
+
+  const validateLastName = (value) => {
+    const error = {};
+    if (!value.trim()) {
+      error.lastName = "Last name is required";
+    } else if (!/^[a-zA-Z\s]+$/.test(value)) {
+      error.lastName = "Invalid Last Name input";
+    }
+    return error;
+  };
+
+  const validateEmail = (value) => {
+    const error = {};
+    if (!value.trim()) {
+      error.email = "Email is required";
+    } else if (!validator.isEmail(value)) {
+      error.email = "Email is invalid";
+    }
+    return error;
+  };
+
+  const validatePhoneNumber = (value) => {
+    const error = {};
+    if (!value || !value.trim()) {
+      error.phoneNumber = "Phone Number is required";
+    } else if (!validator.isMobilePhone(value, "any", { strictMode: true })) {
+      error.phoneNumber = "Phone Number is invalid";
+    }
+    return error;
+  };
+
+  const validateCompany = (value) => {
+    const error = {};
+    if (!value.trim()) {
+      error.company = "Company is required";
+    }
+    return error;
+  };
+  // Form validation
+  const validateForm = () => {
+    const newErrors = {
+      ...validateFirstName(firstName),
+      ...validateLastName(lastName),
+      ...validateEmail(email),
+      ...validatePhoneNumber(phoneNumber),
+      ...validateCompany(company),
+    };
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
-    setResult("Sending....");
-    const formData = new FormData(event.target);
+    const isValid = validateForm();
+    if (!isValid) {
+      return;
+    }
+    setIsSubmitting(true);
 
+    const formData = new FormData();
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("email", email);
+    formData.append("phoneNumber", phoneNumber);
+    formData.append("company", company);
     formData.append("access_key", "7bf4de85-33d8-4450-8479-69d9f3c53bad");
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      Swal.fire({
-        title: "Done",
-        text: "You Will Receive A Call From Our Team Shortly!",
-        icon: "success",
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
       });
-    } else {
-      console.log("Error", data);
-      setResult(data.message);
+      const data = await response.json();
+
+      if (data.success) {
+        Swal.fire({
+          title: "Done",
+          text: "You Will Receive A Call From Our Team Shortly!",
+          icon: "success",
+        });
+      } else {
+        setErrors({ ...errors, submit: data.message });
+        Swal.fire({
+          title: "Error",
+          text: "There was an error with your submission.",
+          icon: "error",
+          confirmButtonText: "Okay",
+        });
+      }
+    } catch (error) {
+      console.error("Submission failed", error);
+      setErrors({
+        ...errors,
+        submit: "There was an error submitting the form.",
+      });
+      Swal.fire({
+        title: "Error",
+        text: "Failed. Check your connection or simply email us at easyM2M.connect@gmail.com.",
+        icon: "error",
+        confirmButtonText: "Okay",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
-const handleClearButton=()=>{
-  setFormValues({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    company: "",
-  });
-}
+  const handleClearButton = () => {
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPhoneNumber("");
+    setCompany("");
+    setErrors({});
+  };
   return (
     <div className="py-16 flex flex-wrap justify-evenly items-center gradient_contactBg">
       <motion.div
@@ -110,16 +254,21 @@ const handleClearButton=()=>{
               className="w-full lg:w-1/2 p-6 center flex-col gap-4">
               <div className="relative w-[80%] md:w-full lg:w-80 mb-6 ">
                 <input
+                  required
                   id="firstName"
                   type="text"
                   className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
                   name="firstName"
                   onFocus={() => setCurrentFormField("firstName")}
                   onBlur={() => setCurrentFormField("")}
-                  value={formValues.firstName}
+                  value={firstName}
                   onChange={handleInputChange}
                 />
-
+                {errors?.firstName && (
+                  <div className="absolute -bottom-[35%] text-right w-fit right-1 italic text-red-500 text-xs lg:text-sm">
+                    {errors?.firstName}
+                  </div>
+                )}
                 <motion.label
                   initial={{ opacity: 0.5, y: 0, x: 0 }}
                   animate={
@@ -135,24 +284,28 @@ const handleClearButton=()=>{
               </div>
               <div className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
                 <input
+                  required
                   id="lastName"
                   type="text"
                   className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
                   name="lastName"
                   onFocus={() => setCurrentFormField("lastName")}
                   onBlur={() => setCurrentFormField("")}
-                  value={formValues.lastName}
+                  value={lastName}
                   onChange={handleInputChange}
-          
                 />
-
+                {errors?.lastName && (
+                  <div className="absolute -bottom-[35%] text-right w-fit right-1 italic text-red-500 text-xs lg:text-sm">
+                    {errors?.lastName}
+                  </div>
+                )}
                 <motion.label
-                 initial={{ opacity: 0.5, y: 0, x: 0 }}
-                 animate={
-                   isFieldActive("lastName")
-                     ? { opacity: 0.6, y: -40, x: -13 }
-                     : ""
-                 }
+                  initial={{ opacity: 0.5, y: 0, x: 0 }}
+                  animate={
+                    isFieldActive("lastName")
+                      ? { opacity: 0.6, y: -40, x: -13 }
+                      : ""
+                  }
                   transition={{ duration: 0.5 }}
                   htmlFor="lastName"
                   className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
@@ -160,29 +313,42 @@ const handleClearButton=()=>{
                 </motion.label>
               </div>
               <div className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
-                <input
+                
+                <PhoneInput
+                  international
+                  defaultCountry="IN"
+                  required
                   id="phoneNumber"
-                  type="text"
-                  className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
-                  name="phoneNumber"
+                  // type="tel"
+                  className="size-full phone-input-class"
+                  name="phoneNumber "
                   onFocus={() => setCurrentFormField("phoneNumber")}
                   onBlur={() => setCurrentFormField("")}
-                  value={formValues.phoneNumber}
-                  onChange={handleInputChange}
-          
+                  value={phoneNumber}
+                  onChange={(value) => {
+                    setPhoneNumber(value);
+                    handleInputChange({ target: { name: "phoneNumber", value } });
+                  }}
                 />
-
+                {errors?.phoneNumber && (
+                  <div className="absolute -bottom-[35%] text-right w-fit right-1 italic text-red-500 text-xs lg:text-sm">
+                    {" "}
+                    {errors?.phoneNumber}
+                  </div>
+                )}
+               
                 <motion.label
-                   initial={{ opacity: 0.5, y: 0, x: 0 }}
-                   animate={
-                     isFieldActive("phoneNumber")
-                       ? { opacity: 0.6, y: -40, x: -13 }
-                       : ""
-                   }
-                  transition={{ duration: 0.5 }}
+                  // initial={{ opacity: 0.5, y: 0, x: 0 }}
+                  // animate={
+                  //   isFieldActive("phoneNumber")
+                  //     ? { opacity: 0.6, y: -26, x: -13 }
+                  //     : ""
+                  // }
+                  // transition={{ duration: 0.5 }}
                   htmlFor="phoneNumber"
-                  className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
-                  Phone Number
+                  className="absolute w-fit top-[-46%]  left-0 "
+                  >
+                  Phone
                 </motion.label>
               </div>
             </motion.div>
@@ -194,24 +360,29 @@ const handleClearButton=()=>{
               className="w-full lg:w-1/2 p-6 pt-0 center flex-col gap-4">
               <div className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
                 <input
+                  required
                   id="email"
-                  type="text"
+                  type="email"
                   className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
                   name="email"
                   onFocus={() => setCurrentFormField("email")}
                   onBlur={() => setCurrentFormField("")}
-                  value={formValues.email}
+                  value={email}
                   onChange={handleInputChange}
-          
                 />
-
+                {errors?.email && (
+                  <div className="absolute -bottom-[35%] text-right w-fit right-1 italic text-red-500 text-xs lg:text-sm">
+                    {" "}
+                    {errors?.email}
+                  </div>
+                )}
                 <motion.label
-                 initial={{ opacity: 0.5, y: 0, x: 0 }}
-                 animate={
-                   isFieldActive("email")
-                     ? { opacity: 0.6, y: -40, x: -13 }
-                     : ""
-                 }
+                  initial={{ opacity: 0.5, y: 0, x: 0 }}
+                  animate={
+                    isFieldActive("email")
+                      ? { opacity: 0.6, y: -40, x: -13 }
+                      : ""
+                  }
                   transition={{ duration: 0.5 }}
                   htmlFor="email"
                   className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
@@ -226,18 +397,22 @@ const handleClearButton=()=>{
                   name="company"
                   onFocus={() => setCurrentFormField("company")}
                   onBlur={() => setCurrentFormField("")}
-                  value={formValues.company}
+                  value={company}
                   onChange={handleInputChange}
-          
                 />
-
+                {errors?.company && (
+                  <div className="absolute -bottom-[35%] text-right w-fit right-1 italic text-red-500 text-xs lg:text-sm">
+                    {" "}
+                    {errors?.company}
+                  </div>
+                )}
                 <motion.label
-                   initial={{ opacity: 0.5, y: 0, x: 0 }}
-                   animate={
-                     isFieldActive("company")
-                       ? { opacity: 0.6, y: -40, x: -13 }
-                       : ""
-                   }
+                  initial={{ opacity: 0.5, y: 0, x: 0 }}
+                  animate={
+                    isFieldActive("company")
+                      ? { opacity: 0.6, y: -40, x: -13 }
+                      : ""
+                  }
                   transition={{ duration: 0.5 }}
                   htmlFor="company"
                   className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
@@ -245,6 +420,7 @@ const handleClearButton=()=>{
                 </motion.label>
               </div>
               <select
+                required
                 className="w-[80%] md:w-full lg:w-80 py-4 px-4  font-semibold focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent  rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
                 name="Budget">
                 <option value="">Your Query Regarding</option>
@@ -262,6 +438,7 @@ const handleClearButton=()=>{
             transition={{ duration: 0.5 }}
             className="w-full flex justify-center mt-6">
             <textarea
+              required
               className="w-full lg:w-[95%] h-44 p-4 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
               placeholder="Tell us about your project. What problem can we help you solve?"
               name="message"
@@ -275,16 +452,23 @@ const handleClearButton=()=>{
             <motion.button
               whileTap={{ scale: 0.9 }}
               type="submit"
-              className="bg-black text-white py-3 px-6 rounded-md w-24">
-              Submit
+              className={`bg-black text-white h-12 rounded-md w-28 center justify-center ${
+                isSubmitting ? "text-xs animate-pulse" : ""
+              }`}>
+              {isSubmitting ? "Submitting..." : "Submit"}
             </motion.button>
 
             <motion.button
-              whileTap={{ scale: 0.9 }}
+              whileTap={!isSubmitting && { scale: 0.9 }}
               type="reset"
               onClick={handleClearButton}
-              title="clear fields"
-              className="bg-cyan-500 text-white py-3 px-6 rounded-md w-24">
+              title={
+                isSubmitting ? "Disabled while submitting" : "Clear fields"
+              }
+              disabled={isSubmitting}
+              className={`${
+                isSubmitting ? "bg-gray-400" : "bg-cyan-500"
+              } text-white  rounded-md h-12 w-28`}>
               Clear
             </motion.button>
           </motion.div>

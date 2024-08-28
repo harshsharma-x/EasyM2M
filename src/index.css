@@ -179,3 +179,41 @@ code {
       hsl(107, 19%, 100%)
     );
 }
+
+/* PhoneInput */
+.phone-input-class {
+  position: relative;
+}
+
+.phone-input-class .PhoneInputCountry {
+  position: absolute;
+  top: 36%;
+  left: 4%;
+}
+
+.phone-input-class .PhoneInputCountryIcon {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.phone-input-class .PhoneInputInput {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 3.5rem;
+  padding-right: 1.7rem;
+  outline: none;
+  box-shadow: 0px 0px 10px 1px #bbe9ff;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.phone-input-class .PhoneInputInput:hover {
+  box-shadow: 0px 0px 10px 1px #4299e1;
+  border: transparent;
+}
+
+.phone-input-class .PhoneInputInput:focus {
+  box-shadow: 0px 0px 10px 1px #4299e1;
+  border: transparent;
+  border-radius: 1.5rem;
+}
