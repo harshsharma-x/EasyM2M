@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Founder from "./subComponents/Founder"; // Import your components here
-import Mentor from "./subComponents/Mentor";
-import Advisor from "./subComponents/Advisor";
-import Sales from "./subComponents/Sales";
+import Founder from "./teamSubComponents/Founder"; // Import your components here
+import Mentor from "./teamSubComponents/Mentor";
+import Advisor from "./teamSubComponents/Advisor";
+import Sales from "./teamSubComponents/Sales";
 
 const Team = () => {
   const [selected, setSelected] = useState(0); // State to track the selected item
