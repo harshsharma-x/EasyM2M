@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Sales = () => {
-  return (
-    <div>
-      hiii
-    </div>
-  )
-}
+  return <div>No details yet.</div>;
+};
 
-export default Sales
+export default Sales;
