@@ -1,5 +1,7 @@
 import React from "react";
-
+import mrPriyaRanjanKumarDp from "../../assets/Images/profilePictures/priyaranjan-photo-round.png";
+import mrsRinkuDp from "../../assets/Images/profilePictures/Rinku.jpg";
+import mrSunilKumarDp from "../../assets/Images/profilePictures/Sunil-circle.png";
 const Founder = () => {
   const founders = [
     {
@@ -9,16 +11,14 @@ const Founder = () => {
           Expert in IoT, M2M, NMS, Cloud, Mobile App
           Worked in Lucent, Aricent & EGMP from IIML
           B.E (Computer Science) from Bangalore Univ, India`,
-      image:
-        "https://static.vecteezy.com/system/resources/previews/009/952/574/original/male-profile-picture-vector.jpg",
+      image: mrPriyaRanjanKumarDp,
     },
     {
       name: "Ms. Rinku",
       position: "Co-Founder & Director",
       description: `HR/Account/Serial Entrepreneur
           2 start-ups as co-founder`,
-      image:
-        "https://static.vecteezy.com/system/resources/previews/009/952/574/original/male-profile-picture-vector.jpg",
+      image: mrsRinkuDp,
     },
     {
       name: "Mr. Sunil Kumar",
@@ -26,8 +26,7 @@ const Founder = () => {
       description: `15 years experience in software development
           Worked for ITI and Lucent Bangalore
           B.E (Electronics & Comm) from BIT, Sindri, India`,
-      image:
-        "https://static.vecteezy.com/system/resources/previews/009/952/574/original/male-profile-picture-vector.jpg",
+      image: mrSunilKumarDp,
     },
   ];
 
@@ -37,7 +36,7 @@ const Founder = () => {
         <div
           key={index}
           className="p-6 my-4 w-80 md:h-[450px] border border-gray-200 rounded-lg transform hover:scale-105 hover:z-10  transition-transform duration-300 ease-in-out flex flex-col gap-2 lg:gap-3 overflow-hidden group hover_gradient">
-          <img 
+          <img
             src={founder.image}
             alt={founder.name}
             className="w-32 min-h-32 rounded-full mx-auto shadow-outline-focus group-hover:shadow-outline-light  group-hover:animate-oval-motion animate"
