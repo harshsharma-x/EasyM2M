@@ -29,7 +29,7 @@ const Advisor = () => {
           <img
             src={advisor?.image}
             alt={advisor?.name}
-            className="  w-32 min-h-32 rounded-full mx-auto border-4 border-blue-500 group-hover:animate-oval-motion"
+            className="w-32 h-32 rounded-full mx-auto  border-4 border-blue-500 group-hover:animate-oval-motion"
           />
           <h2 className="mt-[5%]  text-xl font-semibold text-gray-800 text-center group-hover:animate-animateNames group-hover:w-min  group-hover:text-left">
             {advisor?.name}
