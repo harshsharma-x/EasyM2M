@@ -5,6 +5,8 @@ import Team from "./Team";
 import AboutAtLanding from "./AboutAtLanding";
 import Services from "./Services";
 import Footer from "./Footer";
+import Recognition from "./Recognition";
+import PageWithScrollAnimation from './PageWithScrollAnimation'
 
 const Home = () => {
   return (
@@ -16,8 +18,14 @@ const Home = () => {
       <div id="services" className="scroll-m-16">
         <Services />
       </div>
+      {/* <div>
+        <PageWithScrollAnimation />
+      </div> */}
       <div id="team" className="scroll-m-16">
         <Team />
+      </div>
+  <div>
+        <Recognition />
       </div>
       <div id="contact" className="scroll-m-16">
         <Contact />

@@ -67,7 +67,7 @@ const Services = () => {
       {/* Bottom Section */}
       <div className="bg-gray-800 py-10 px-4 md:px-20 text-white">
         <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-4xl font-extrabold text-center mb-12 text-white">Our Services</h1>
+          <h1 className="text-4xl font-extrabold text-center mb-12 text-white">Services</h1>
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {bottomServices.map((service, index) => (
               <motion.div
