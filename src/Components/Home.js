@@ -24,11 +24,11 @@ const Home = () => {
       <div id="team" className="scroll-m-16">
         <Team />
       </div>
+  <div>
+        <Recognition />
+      </div>
       <div id="contact" className="scroll-m-16">
         <Contact />
-      </div>
-      <div>
-        <Recognition />
       </div>
       <div id="footer" className="scroll-m-16">
         <Footer />
