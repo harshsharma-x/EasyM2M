@@ -15,7 +15,7 @@ const Footer = () => {
             <div className='mt-6 flex justify-center md:justify-start items-center gap-2'>
               <i className='fa-solid fa-2xl fa-headphones'></i>
               <p >  
-               <div className='font-bold'> Got questions? Call us 24/7 </div><br />
+               <div className='font-bold'> Got questions? Call us 24/7 </div>
                 <div className='text-sm'>
                   (800) 8001-8588, (0600) 874 548
                 </div>
@@ -32,10 +32,10 @@ const Footer = () => {
               </p>
             </div>
             <div className='mt-6 flex justify-center md:justify-start gap-4'>
-              <i className='fab fa-linkedin fa-2xl'></i>
-              <i className='fab fa-instagram fa-2xl'></i>
-              <i className='fab fa-facebook-f fa-2xl'></i>
-              <i className='fab fa-youtube fa-2xl'></i>
+              <i className='fab  hover:text-blue-500 hover:-translate-y-1 transition-transform fa-linkedin fa-2xl'></i>
+              <i className="fab fa-instagram fa-2xl hover:text-pink-500 hover:-translate-y-1 transition-transform"></i>
+              <i className='fab hover:text-blue-700 hover:-translate-y-1 transition-transform fa-facebook-f fa-2xl'></i>
+              <i className='fab hover:text-red-600 hover:-translate-y-1 transition-transform fa-youtube fa-2xl'></i>
             </div>
           </div>
 
