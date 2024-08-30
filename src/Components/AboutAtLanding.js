@@ -4,6 +4,8 @@ import aboutCard1 from "../assets/Images/aboutCard1.png";
 import aboutCard2 from "../assets/Images/aboutCard2.png";
 import aboutCard3 from "../assets/Images/aboutCard3.png";
 import aboutCard4 from "../assets/Images/aboutCard4.png";
+import WatchUsOnYoutube from "./aboutAtLanding_subComponents/WatchUsOnYoutube";
+import WhatWeDo from "./aboutAtLanding_subComponents/WhatWeDo";
 
 const AboutAtLanding = () => {
   const aboutCardData = [
@@ -52,15 +54,13 @@ const AboutAtLanding = () => {
           <span className="text-lime-500">Life</span> with{" "}
           <span className=" text-lime-500">SmartKavach"</span>
         </div>
-        <div className="mt-12 center justify-between  gap-3 md:gap-6 lg:gap-16 flex-wrap ">
+        <div className="mt-12 center justify-between  gap-3 md:gap-6 lg:gap-16  flex-wrap ">
           {aboutCardData.map((card, index) => {
             return (
               <div
                 key={index}
                 className={`shadow-outline-light  rounded-md hover:rounded-3xl size-44 md:size-60 lg:size-72 hover:scale-105 hover:translate-y-[-13px] lg:hover:translate-y-[-30px] animate hover:z-10 relative overflow-hidden group  ${
-                  index % 2 === 0
-                    ? "translate-y-12 sm:translate-y-0 lg:translate-y-12 "
-                    : ""
+                  index % 2 === 0 ? "md:translate-y-5  lg:translate-y-12 " : ""
                 }`}>
                 <img
                   src={card.bg}
@@ -92,6 +92,13 @@ const AboutAtLanding = () => {
           })}
         </div>
       </div>
+      {/* embedded youtube */}
+    <div className="mt-12 md:mt-20 ">
+      <WatchUsOnYoutube />
+    </div>
+    <div className="mt-12 md:mt-20 ">
+      <WhatWeDo />
+    </div>
     </div>
   );
 };

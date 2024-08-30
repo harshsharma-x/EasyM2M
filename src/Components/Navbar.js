@@ -13,9 +13,10 @@ const Navbar = () => {
     { title: "About", path: "/#aboutAtLanding", dropDownIcon: true },
     { title: "Products", path: "/products", dropDownIcon: true },
     { title: "Services", path: "/#services", dropDownIcon: true },
-    { title: "Blog", path: "/blog" },
     { title: "Team", path: "/#team" },
     { title: "Contact", path: "/#contact" },
+    { title: "News", path: "/news" },
+    { title: "Careers", path: "/#careers" },
   ];
   const productsLinks = [
     { title: "SmartKavach", path: "/products/product1" },
@@ -92,7 +93,7 @@ const Navbar = () => {
               onMouseLeave={() => {
                 setIsMenuOpen(false);
               }}
-              className={`flex lg:gap-12 md:gap-6 md:items-center flex-col md:flex-row md:static md:flex absolute items-start gap-6 right-[10%] top-14 bg-blue-200 md:bg-inherit px-16 py-2 md:px-0 md:py-0 rounded-lg opacity-80 md:opacity-100 ${
+              className={`flex xl:gap-12 lg:gap-10 md:gap-4 md:text-sm lg:text-base md:items-center flex-col md:flex-row md:static md:flex absolute items-start gap-6 right-[10%] top-14 bg-blue-200 md:bg-inherit px-16 py-2 md:px-0 md:py-0 rounded-lg opacity-80 md:opacity-100 ${
                 isMenuOpen ? "" : "hidden "
               }`}>
               {menuLinks.map((option) => {
