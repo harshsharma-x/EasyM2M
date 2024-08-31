@@ -68,7 +68,7 @@ const AboutAtLanding = () => {
                   <img
                     src={card.bg}
                     alt=""
-                    className="absolute object-cover inset-0 "
+                    className="absolute object-cover inset-0 group-hover:scale-125 animate"
                   />
                   <div
                     className={`absolute top-0 right-0 rounded-bl-3xl ${card.numberBgColor} group-hover:py-2 group-hover:px-4 py-1 px-3 z-10 text-white animate`}>
