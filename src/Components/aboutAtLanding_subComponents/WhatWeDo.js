@@ -43,7 +43,7 @@ const WhatWeDo = () => {
             <img
               src={watchWithSpecs}
               alt="watch with specs"
-              className="rounded-md hover:scale-105 animate object-cover"
+              className="rounded-md hover:scale-[1.01] animate object-cover"
             />
           </div>
         </div>
@@ -88,7 +88,7 @@ const WhatWeDo = () => {
             <img
               src={emergencyHelp}
               alt="watch with specs"
-              className="rounded-md hover:scale-105 animate object-cover"
+              className="rounded-md hover:scale-[1.01] animate object-cover"
             />
           </div>
         </div>
@@ -130,7 +130,7 @@ const WhatWeDo = () => {
           <img
             src={sendAlert}
             alt="watch with specs"
-            className="hover:scale-105 animate object-cover"
+            className="hover:scale-[1.01] animate object-cover"
           />
         </div>
         </div>
