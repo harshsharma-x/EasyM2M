@@ -7,7 +7,7 @@ const Founder = () => {
     {
       name: "Mr PriyaRanjan Kumar",
       position: "Founder and CTO",
-      description: `18+ years in Software Industry
+      description: `25+ years in Software Industry
           Expert in IoT, M2M, NMS, Cloud, Mobile App
           Worked in Lucent, Aricent & EGMP from IIML
           B.E (Computer Science) from Bangalore Univ, India`,
