@@ -196,8 +196,7 @@ const Navbar = () => {
             </div>
             <div
               onClick={handleSidebarToggle}
-              className="lg:hover:bg-gray-300 animate lg:p-1 lg:rounded-full lg:size-9 center lg:justify-center z-20">
-              <i className="fa-solid fa-sliders cursor-pointer"></i>
+              className="lg:hover:bg-gray-300 animate lg:p-1 lg:rounded-full lg:size-9 center lg:justify-center z-20"><i className="fa-solid fa-user"></i>
             </div>
           </div>
 

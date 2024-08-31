@@ -48,8 +48,8 @@ const Team = () => {
           {list.map((item, index) => (
             <motion.div
               key={index}
-              className={`py-2 cursor-pointer ${
-                selected === index ? "text-blue-500" : ""
+              className={` cursor-pointer ${
+                selected === index ? "text-blue-500 border-b-4 border-blue-400 hover:border-b-2  hover:border-blue-500 rounded-md " : "hover:border-b-2 hover:rounded-md hover:border-black"
               }`} // Conditional underline
               whileTap={{ scale: 0.9 }}
               onClick={() => handleClick(index)} // Click handler

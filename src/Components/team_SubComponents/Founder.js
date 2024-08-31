@@ -39,7 +39,7 @@ const Founder = () => {
           <img
             src={founder.image}
             alt={founder.name}
-            className="w-32 h-32 rounded-full mx-auto shadow-outline-focus group-hover:shadow-outline-light  group-hover:animate-oval-motion animate"
+            className="w-32 h-32 rounded-full mx-auto shadow-outline-focus group-hover:shadow-outline-light group-hover:animate-oval-motion animate"
           />
           <h2 className="mt-[5%]  text-xl font-semibold text-gray-800 text-center group-hover:animate-animateNames group-hover:w-min  group-hover:text-left">
             {founder.name}
