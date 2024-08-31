@@ -96,7 +96,7 @@ const AboutAtLanding = () => {
     <div className="mt-12 md:mt-20 ">
       <WatchUsOnYoutube />
     </div>
-    <div className="mt-12 md:mt-20 ">
+    <div className="mt-12 md:mt-24 ">
       <WhatWeDo />
     </div>
     </div>
