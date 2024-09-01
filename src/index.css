@@ -98,3 +98,33 @@ code {
   border: transparent;
   border-radius: 1.5rem;
 }
+/* HTML: <div class="loader"></div> */
+.loader {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  line-height: 1.2em;
+  display: inline-grid;
+}
+
+.loader:before,
+.loader:after {
+  content: "Loading...";
+  grid-area: 1/1;
+  -webkit-mask: linear-gradient(90deg, #2238b6 50%, #072a7700 0) 0 50%/2ch 100%;
+  color: #00000000;
+  text-shadow: 0 0 0 #82868a, 0 calc(var(--s, 1) * 1.2em) 0 #000000;
+  animation: l15 1s infinite;
+}
+
+.loader:after {
+  -webkit-mask-position: 1ch 50%;
+  --s: -1;
+}
+
+@keyframes l15 {
+  80%,
+  100% {
+    text-shadow: 0 calc(var(--s, 1) * -1.2em) 0 #8e9a9e, 0 0 0 #9598a0;
+  }
+}

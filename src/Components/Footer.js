@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="overflow-hidden">
       <div className="gradient_footerBg py-8 ">
         <div className="mx-auto px-12">
-          <div className="flex justify-between flex-wrap gap-12">
+          <div className="flex justify-between items-start  flex-wrap gap-12">
             {/* Logo and Contact Info */}
             <div className="flex flex-col items-start">
               <div className="w-20 mx-auto">
