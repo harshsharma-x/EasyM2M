@@ -3,12 +3,17 @@ import watchWithSpecs from "../../assets/Images/products/wearable-edited1.png";
 import emergencyHelp from "../../assets/Images/tele-vid-help-health-care.jpg";
 // import firstResponders2 from "../../assets/Images/ambulanceBlue-removebg-preview.png";
 import sendAlert from "../../assets/Images/Designer__9_-removebg-preview.png";
-
+import { motion } from "framer-motion";
 const WhatWeDo = () => {
   return (
     <div className="mx-auto px-8 center flex-col gap-12">
       <div className="1st center justify-around w-full gap-12">
-        <div className="w-1/2 center justify-center ">
+        <motion.div
+          initial={{ opacity: 0, x: -250 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="w-1/2 center justify-center">
           <div className="flex flex-col gap-5">
             <div className="text-base lg:text-xl">
               <span className="text-lime-500">Safety</span> ,{" "}
@@ -36,9 +41,14 @@ const WhatWeDo = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-1/2 center justify-center ">
+        <motion.div
+          initial={{ opacity: 0, x: 250 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="w-1/2 center justify-center ">
           <div className="lg:w-[600px] lg:h-[500px] overflow-hidden">
             <img
               src={watchWithSpecs}
@@ -46,12 +56,17 @@ const WhatWeDo = () => {
               className="rounded-md hover:scale-[1.01] animate object-cover"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
       {/* border in-between */}
       <div className="center justify-center border  border-transparent rounded w-[50%] shadow-outline-light hover:shadow-outline-focus"></div>
       <div className="2nd center justify-around  flex-row-reverse w-full  gap-12">
-        <div className="w-1/2 center justify-center">
+        <motion.div
+          initial={{ opacity: 0, x: 250 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="w-1/2 center justify-center">
           <div className="flex flex-col gap-5">
             <div className="text-base lg:text-xl">
               Tele-Video Medical
@@ -81,9 +96,14 @@ const WhatWeDo = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-1/2 center justify-center">
+        <motion.div
+          initial={{ opacity: 0, x: -250 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="w-1/2 center justify-center">
           <div className="lg:w-[600px] lg:h-[400px] overflow-hidden ">
             <img
               src={emergencyHelp}
@@ -91,12 +111,17 @@ const WhatWeDo = () => {
               className="rounded-md hover:scale-[1.01] animate object-cover"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
       {/* first responders */}
       <div className="center justify-center border  border-transparent rounded w-[50%] shadow-outline-light hover:shadow-outline-focus"></div>
       <div className="3rd center justify-around w-full gap-12">
-        <div className="w-1/2 center justify-center">
+        <motion.div
+          initial={{ opacity: 0, x: -250 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="w-1/2 center justify-center">
           <div className="flex flex-col gap-5">
             <div className="text-base lg:text-xl">
               <span className="text-lime-500">First Responders </span>
@@ -123,17 +148,21 @@ const WhatWeDo = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="w-1/2 center justify-center">
-
-        <div className="lg:w-[600px] lg:h-[400px] overflow-hidden  center rounded-md">
-          <img
-            src={sendAlert}
-            alt="watch with specs"
-            className="hover:scale-[1.01] animate object-cover"
-          />
-        </div>
-        </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 250 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="w-1/2 center justify-center">
+          <div className="lg:w-[600px] lg:h-[400px] overflow-hidden  center rounded-md">
+            <img
+              src={sendAlert}
+              alt="watch with specs"
+              className="hover:scale-[1.01] animate object-cover"
+            />
+          </div>
+        </motion.div>
       </div>
     </div>
   );
