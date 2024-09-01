@@ -205,7 +205,7 @@ const Contact = () => {
   };
   return (
     <div className="overflow-hidden">
-      <div className="py-16 flex flex-wrap justify-evenly items-center gradient_contactBg">
+      <div className="py-16 flex flex-wrap justify-evenly items-center gradient_contactBg px-4">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
