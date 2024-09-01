@@ -208,17 +208,14 @@ const Contact = () => {
       <div className="py-16 flex flex-wrap justify-evenly items-center gradient_contactBg">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="flex justify-center items-center">
           <div className="">
-            <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="size-60  bg-gray-50 hover:bg-[#D1E9F6] animate rounded-full center justify-center">
+            <div className="size-60  bg-gray-50 hover:bg-[#D1E9F6] animate rounded-full center justify-center">
               <img src={Logo} alt="Logo" className="size-1/2 md:size-4/5" />
-            </motion.div>
+            </div>
             <div>
               EasyM2M Technologies Pvt. Ltd., <br /> Bangalore, India.
             </div>
@@ -227,38 +224,42 @@ const Contact = () => {
         <form
           onSubmit={onSubmit}
           className="flex justify-center items-center px-4 md:mt-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="w-full max-w-4xl text-center py-4 center flex-col">
-            <div className="w-fit mb-2">
-              <h1 className="text-2xl md:text-4xl font-bold fancy fancyParent text-blue-500">
-                Contact Us
-              </h1>
-            </div>
-            <div className="md:text-xl text-base text-gray-600 font-light mt-2 fancyDivTAG">
-              <p className="">
-                We've worked with clients of all sizes, from enterprise
-                <br />
-                brands to funded startups. Let's talk about your
-                <br />
-                project and how we can help provide value.
-              </p>
-            </div>
+          <div className="w-full max-w-4xl text-center py-4 center flex-col">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.6 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="center flex-col">
+              <div className="w-fit mb-2">
+                <h1 className="text-2xl md:text-4xl font-bold fancy fancyParent text-blue-500">
+                  Contact Us
+                </h1>
+              </div>
+              <div className="md:text-xl text-base text-gray-600 font-light mt-2 fancyDivTAG">
+                <p className="">
+                  We've worked with clients of all sizes, from enterprise
+                  <br />
+                  brands to funded startups. Let's talk about your
+                  <br />
+                  project and how we can help provide value.
+                </p>
+              </div>
+            </motion.div>
 
             <div className="w-full mt-4 flex flex-col md:flex-row justify-center items-center rounded-lg">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full lg:w-1/2 p-6 center flex-col gap-4">
-                <div className="relative w-[80%] md:w-full lg:w-80 mb-6 ">
+              <div className="w-full lg:w-1/2 p-6 center flex-col gap-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                  className="relative w-[80%] md:w-full lg:w-80 mb-6 ">
                   <input
                     required
                     id="firstName"
                     type="text"
-                    className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                    className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent bg-transparent"
                     name="firstName"
                     onFocus={() => setCurrentFormField("firstName")}
                     onBlur={() => setCurrentFormField("")}
@@ -282,13 +283,18 @@ const Contact = () => {
                     className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
                     First Name
                   </motion.label>
-                </div>
-                <div className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7,delay:.2 }}
+                  className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
                   <input
                     required
                     id="lastName"
                     type="text"
-                    className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                    className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent bg-transparent"
                     name="lastName"
                     onFocus={() => setCurrentFormField("lastName")}
                     onBlur={() => setCurrentFormField("")}
@@ -312,8 +318,13 @@ const Contact = () => {
                     className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
                     Last Name
                   </motion.label>
-                </div>
-                <div className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7,delay:.3 }}
+                  className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
                   <PhoneInput
                     international
                     defaultCountry="IN"
@@ -351,20 +362,21 @@ const Contact = () => {
                     className="absolute w-fit top-[-46%]  left-0 ">
                     Phone
                   </motion.label>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full lg:w-1/2 p-6 pt-0 center flex-col gap-4">
-                <div className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
+              <div className="w-full lg:w-1/2 p-6  pt-0 lg:pt-6 center flex-col gap-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7,delay:.4 }}
+                  className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
                   <input
                     required
                     id="email"
                     type="email"
-                    className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                    className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent bg-transparent"
                     name="email"
                     onFocus={() => setCurrentFormField("email")}
                     onBlur={() => setCurrentFormField("")}
@@ -389,12 +401,17 @@ const Contact = () => {
                     className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
                     Email
                   </motion.label>
-                </div>
-                <div className="relative w-[80%] md:w-full lg:w-80 mb-6 ">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 ,delay:.5}}
+                  className="relative w-[80%] md:w-full lg:w-80 mb-6 ">
                   <input
                     id="company"
                     type="text"
-                    className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                    className="size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent bg-transparent"
                     name="company"
                     onFocus={() => setCurrentFormField("company")}
                     onBlur={() => setCurrentFormField("")}
@@ -419,47 +436,59 @@ const Contact = () => {
                     className="absolute w-fit  top-[22.5%] md:top-[22%] left-[5.5%] ">
                     Company
                   </motion.label>
-                </div>
-                <select
-                  required
-                  className="w-[80%] md:w-full lg:w-80 py-4 px-4  font-semibold focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent  rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
-                  name="Budget">
-                  <option value="">Your Query Regarding</option>
-                  <option value="sales">Sales</option>
-                  <option value="feedback">Feedback</option>
-                  <option value="info">Info</option>
-                  <option value="others">Others</option>
-                </select>
-              </motion.div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7,delay:.6 }}
+                  className="relative w-[80%] md:w-full lg:w-80 mb-6">
+                  <select
+                    required
+                    className=" size-full py-4 px-4 font-semibold focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent  rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent bg-transparent "
+                    name="Budget">
+                    <option value="">Your Query Regarding</option>
+                    <option value="sales">Sales</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="info">Info</option>
+                    <option value="others">Others</option>
+                  </select>
+                </motion.div>
+              </div>
             </div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7,delay:.7 }}
               className="w-full flex justify-center mt-6">
               <textarea
                 required
-                className="w-full lg:w-[95%] h-44 p-4 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent"
+                className="w-full lg:w-[95%] h-44 p-4 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent bg-transparent"
                 placeholder="Tell us about your project. What problem can we help you solve?"
                 name="message"
               />
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="w-full flex items-center justify-center mt-4 gap-6">
+            <div className="w-full flex items-center justify-center mt-4 gap-6">
               <motion.button
                 whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.2 }}
                 type="submit"
-                className={`bg-black text-white h-12 rounded-md w-28 center justify-center ${
+                className={`bg-black hover:bg-black/85  text-white h-12 rounded-md w-28 center justify-center ${
                   isSubmitting ? "text-xs animate-pulse" : ""
                 }`}>
                 {isSubmitting ? "Submitting..." : "Submit"}
               </motion.button>
 
               <motion.button
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.2 }}
                 whileTap={!isSubmitting && { scale: 0.9 }}
                 type="reset"
                 onClick={handleClearButton}
@@ -468,12 +497,12 @@ const Contact = () => {
                 }
                 disabled={isSubmitting}
                 className={`${
-                  isSubmitting ? "bg-gray-400" : "bg-cyan-500"
+                  isSubmitting ? "bg-gray-400" : "bg-cyan-400 hover:bg-red-500"
                 } text-white  rounded-md h-12 w-28`}>
                 Clear
               </motion.button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </form>
       </div>
     </div>
