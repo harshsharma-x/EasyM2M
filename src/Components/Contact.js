@@ -259,7 +259,7 @@ const Contact = () => {
                     required
                     id="firstName"
                     type="text"
-                    className=" size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent bg-transparent"
+                    className="size-full py-4 px-6 focus:shadow-outline-focus outline-none shadow-outline-light focus:border-transparent rounded-md focus:rounded-3xl transition-all duration-200 hover:shadow-outline-focus hover:border-transparent bg-transparent"
                     name="firstName"
                     onFocus={() => setCurrentFormField("firstName")}
                     onBlur={() => setCurrentFormField("")}
@@ -359,19 +359,19 @@ const Contact = () => {
                     // }
                     // transition={{ duration: 0.5 }}
                     htmlFor="phoneNumber"
-                    className="absolute w-fit top-[-46%]  left-0 ">
+                    className="absolute w-fit top-[-46%]  left-0 opacity-70">
                     Phone
                   </motion.label>
                 </motion.div>
               </div>
 
-              <div className="w-full lg:w-1/2 p-6  pt-0 lg:pt-6 center flex-col gap-4">
+              <div className="w-full lg:w-1/2 p-6 center flex-col gap-4">
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7,delay:.4 }}
-                  className="relative w-[80%] lg:w-80 md:w-full mb-6 ">
+                  className="relative w-[80%] lg:w-80 md:w-full mb-6">
                   <input
                     required
                     id="email"

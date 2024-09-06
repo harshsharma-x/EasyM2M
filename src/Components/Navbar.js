@@ -11,7 +11,7 @@ const Navbar = () => {
   const menuLinks = [
     { title: "Home", path: "/#" },
     { title: "About", path: "/#aboutAtLanding", dropDownIcon: true },
-    { title: "Products", path: "/products", dropDownIcon: true },
+    { title: "Products", path: "/#products", dropDownIcon: true },
     { title: "Services", path: "/#services", dropDownIcon: true },
     { title: "Team", path: "/#team" },
     { title: "Contact", path: "/#contact" },
@@ -19,11 +19,12 @@ const Navbar = () => {
     { title: "Careers", path: "/#careers" },
   ];
   const productsLinks = [
-    { title: "SmartKavach", path: "/products/product1" },
-    { title: "SmartKavach App", path: "/products/product2" },
-    { title: "EasyOs", path: "/products/product3" },
-    { title: "Product 4", path: "/products/product4" },
-    { title: "Product 5", path: "/products/product5" },
+    { title: "All Products", path: "/allProducts" },
+    { title: "EasyOs", path: "/#products_easyOs" },
+    { title: "SmartKavach App", path: "/#products_smartKavachApp" },
+    { title: "Smart Management", path: "/#products_management" },
+    // { title: "Product 4", path: "/#products" },
+    // { title: "Product 5", path: "/#products" },
   ];
 
   const servicesLinks = [
@@ -133,7 +134,7 @@ const Navbar = () => {
                             whileHover={{ scale: 1.02 }}
                             key={product.path}
                             className="px-4 py-2 hover:bg-gray-200 rounded-md">
-                            <Link to={product.path}>{product.title}</Link>
+                            <Link smooth to={product.path}>{product.title}</Link>
                           </motion.li>
                         ))}
                       </motion.ul>
@@ -150,7 +151,7 @@ const Navbar = () => {
                             whileHover={{ scale: 1.02 }}
                             key={service.path}
                             className="px-4 py-2 hover:bg-gray-200 rounded-md">
-                            <Link to={service.path}>{service.title}</Link>
+                            <Link smooth to={service.path}>{service.title}</Link>
                           </motion.li>
                         ))}
                       </motion.ul>
