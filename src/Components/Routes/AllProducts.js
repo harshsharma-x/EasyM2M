@@ -1,11 +1,10 @@
 import React from "react";
 
-// chatGPt.. NOt furnished ..... 
 const AllProducts = () => {
   return (
     <div className="solutions-container">
       {/* Hero Section */}
-      <section className="hero bg-blue-600 text-white py-12 md:py-20 px-6 text-center">
+      <section className="hero bg-blue-600 text-white py-14 md:py-20 px-6 text-center">
         <h1 className="text-4xl font-bold mb-4">Wireless Network Communication System</h1>
         <p className="text-lg">DGMS certified system for Underground and OpenCast Mines.</p>
       </section>
@@ -68,18 +67,6 @@ const AllProducts = () => {
             </ul>
           </div>
         </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="contact-section bg-blue-600 text-white py-12 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-        <p className="text-lg">Contact us to learn more about our industrial IoT and wireless solutions.</p>
-        <a
-          href="/#contact"
-          className="mt-6 inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-bold text-lg"
-        >
-          Contact Us
-        </a>
       </section>
     </div>
   );

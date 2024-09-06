@@ -77,7 +77,7 @@ const Products = () => {
                                product.id % 2 === 0
                                  ? "group-hover:-translate-x-4"
                                  : "group-hover:translate-x-4"
-                             } transition-all duration-500 ease-in-out`}
+                             } transition-all duration-700 ease-in-out`}
                         />
                       </div>
 

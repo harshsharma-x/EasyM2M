@@ -92,7 +92,7 @@ const Navbar = () => {
   }, [isMenuOpen, isSidebarOpen]);
 
   return (
-    <header className="fixed top-0 z-30 w-full bg-white/30 shadow-md">
+    <header className="sticky top-0 z-30 w-full bg-white/30 shadow-md ">
       <div ref={menuRef} className="relative ">
         <nav className="center justify-between p-4 mx-auto w-full max-w-7xl">
           {/* Logo */}
@@ -116,7 +116,7 @@ const Navbar = () => {
                   <li
                     key={option.path}
                     onClick={() => handleClickOnMainMenuOptionsToCloseTheMenu(option)} 
-                    className="center justify-between w-full gap-1 md:gap-2 md:font-medium hover:bg-gray-300 hover:md:bg-transparent px-2 border-b-2 md:border-none rounded-md hover:border-gray-400 hover:text-gray-500"
+                    className="center justify-between w-full gap-1 md:gap-2 md:font-medium hover:bg-gray-300 hover:md:bg-transparent px-2 border-b-2 md:border-none rounded-md hover:border-gray-400"
                     // onMouseLeave={handleMouseLeave}
                     >
                     <Link onClick={handleClickOnSubMenuOptionsToCloseTheMenu} smooth to={option.path}>
