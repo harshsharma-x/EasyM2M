@@ -319,12 +319,29 @@
     transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.gradient_productStandBg{
-  background-image: radial-gradient(circle at top left, rgb(195, 195, 195) 0%, rgb(195, 195, 195) 2%,rgb(202, 202, 202) 2%, rgb(202, 202, 202) 23%,rgb(209, 209, 209) 23%, rgb(209, 209, 209) 55%,rgb(217, 217, 217) 55%, rgb(217, 217, 217) 80%,rgb(224, 224, 224) 80%, rgb(224, 224, 224) 86%,rgb(231, 231, 231) 86%, rgb(231, 231, 231) 96%,rgb(238, 238, 238) 96%, rgb(238, 238, 238) 100%);;
+.gradient_productStandBg {
+  background-image: radial-gradient(
+    circle at top left,
+    rgb(195, 195, 195) 0%,
+    rgb(195, 195, 195) 2%,
+    rgb(202, 202, 202) 2%,
+    rgb(202, 202, 202) 23%,
+    rgb(209, 209, 209) 23%,
+    rgb(209, 209, 209) 55%,
+    rgb(217, 217, 217) 55%,
+    rgb(217, 217, 217) 80%,
+    rgb(224, 224, 224) 80%,
+    rgb(224, 224, 224) 86%,
+    rgb(231, 231, 231) 86%,
+    rgb(231, 231, 231) 96%,
+    rgb(238, 238, 238) 96%,
+    rgb(238, 238, 238) 100%
+  );
   background-size: 100%;
   transition: background-size 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
     transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
+
 .gradient_heroBg:hover,
 .gradient_aboutBg:hover,
 .gradient_recognitionBg:hover,
@@ -338,5 +355,4 @@
 .group:hover .gradient_productStandBg {
   background-size: 120%;
   transform: scale(1.02);
-
 }
