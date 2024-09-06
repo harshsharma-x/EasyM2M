@@ -13,7 +13,7 @@ const Hero = () => {
         {!isVideoLoaded && (
           <div className="loader absolute top-[60%]"></div>
         )}
-        {/* <video
+        <video
           autoPlay
           muted
           loop
@@ -21,7 +21,7 @@ const Hero = () => {
           type="video/mp4"
           className="object-cover w-full h-full"
           onLoadedData={handleVideoLoaded}
-        /> */}
+        />
         <div className=" absolute text-3xl  md:text-5xl lg:text-7xl center justify-center px-2 text-gray-200 font-semibold">
           <div>
             IoT-Powered <span className="text-lime-400">Safety</span> , Anytime,
