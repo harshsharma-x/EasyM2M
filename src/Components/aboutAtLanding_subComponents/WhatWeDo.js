@@ -25,14 +25,14 @@ const WhatWeDo = () => {
             </div>
             <div>
               <div className="text-xs md:text-sm lg:text-lg leading-6">
-                <div className="w-4/5">
+                <div className="w-4/5 text-gray-600">
                   <span className="text-lime-500">ThirdEye™</span> solution is
                   Unique solution for the multiple industrial Enterprises
                   market.
                   <div className="leading-6">
                     <a
                       href="/products"
-                      className="text-blue-400 hover:text-blue-500"
+                      className=""
                       title="Go to product section">
                       Know more ...
                     </a>
@@ -75,7 +75,9 @@ const WhatWeDo = () => {
             <div>
               <div className="text-xs md:text-sm lg:text-lg leading-6">
                 <div className="w-4/5 ">
-                  <p>
+                  <p
+                    className="
+                  text-gray-600">
                     <span className="text-red-500">50%</span> of{" "}
                     <span className="text-red-500">critical </span>
                     patient and <span className="text-red-500">90%</span> of
@@ -88,7 +90,7 @@ const WhatWeDo = () => {
                 <div className="leading-6">
                   <a
                     href="/products"
-                    className="text-blue-400 hover:text-blue-500"
+                    className=""
                     title="Go to product section">
                     Know more ...
                   </a>
@@ -130,7 +132,7 @@ const WhatWeDo = () => {
             <div>
               <div className="text-xs md:text-sm lg:text-lg leading-6">
                 <div className="w-4/5 ">
-                  <ul className="list-disc leading-5 lg:leading-6">
+                  <ul className="list-disc leading-5 lg:leading-6 text-gray-600">
                     <li>Automatic location tracking for safety and rescue.</li>
                     <li>Automatic fall alerts.</li>
                     <li>Emergency SOS assistance for medical situations.</li>
@@ -140,7 +142,7 @@ const WhatWeDo = () => {
                 <div className="leading-6">
                   <a
                     href="/products"
-                    className="text-blue-400 hover:text-blue-500"
+                    className=""
                     title="Go to product section">
                     Know more ...
                   </a>

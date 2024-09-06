@@ -6,7 +6,8 @@ import AboutAtLanding from "./AboutAtLanding";
 import Services from "./Services";
 import Footer from "./Footer";
 import Recognition from "./Recognition";
-import PageWithScrollAnimation from './PageWithScrollAnimation'
+import PageWithScrollAnimation from "./PageWithScrollAnimation";
+import Products from "./Products";
 
 const Home = () => {
   return (
@@ -14,6 +15,9 @@ const Home = () => {
       <Hero />
       <div id="aboutAtLanding" className="scroll-m-16">
         <AboutAtLanding />
+      </div>
+      <div id="products" className="scroll-m-16">
+        <Products />
       </div>
       <div id="services" className="scroll-m-16">
         <Services />
@@ -24,7 +28,7 @@ const Home = () => {
       <div id="team" className="scroll-m-16">
         <Team />
       </div>
-  <div>
+      <div>
         <Recognition />
       </div>
       <div id="contact" className="scroll-m-16">
