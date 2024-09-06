@@ -8,7 +8,8 @@ const Hero = () => {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden h-screen w-full">
+      <div className=" absolute inset-0">
       <div className="flex justify-around items-center h-screen relative gradient_heroBg">
         {!isVideoLoaded && (
           <div className="loader absolute top-[60%]"></div>
@@ -28,6 +29,7 @@ const Hero = () => {
             Anywhere.
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

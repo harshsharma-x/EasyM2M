@@ -53,9 +53,9 @@ const Team = () => {
                   selected === index
                     ? "text-blue-500 border-b-4 border-blue-400 hover:border-b-2  hover:border-blue-500 rounded-md "
                     : "hover:border-b-2 hover:rounded-md hover:border-black"
-                }`} // Conditional underline
+                }`} 
                 whileTap={{ scale: 0.9 }}
-                onClick={() => handleClick(index)} // Click handler
+                onClick={() => handleClick(index)} 
               >
                 <div className="flex justify-center items-center">
                   {item.icon}
@@ -65,7 +65,6 @@ const Team = () => {
             ))}
           </motion.div>
 
-          {/* Conditional rendering of components */}
           <div className="w-[80%] mt-5">
             {list[selected] && (
               <motion.div

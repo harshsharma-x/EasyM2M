@@ -34,9 +34,6 @@ const Home = () => {
       <div id="contact" className="scroll-m-16">
         <Contact />
       </div>
-      <div id="footer" className="scroll-m-16">
-        <Footer />
-      </div>
     </div>
   );
 };
