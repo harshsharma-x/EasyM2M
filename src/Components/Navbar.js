@@ -45,13 +45,25 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleClickOnMainMenuOptionsToCloseTheMenu=(option)=>{
+    if (!option.dropDownIcon) {
+      setIsMenuOpen(false); 
+      setOpenDropDown(null);
+    }
+  }
+
+  const handleClickOnSubMenuOptionsToCloseTheMenu=()=>{
+    setIsMenuOpen(false);
+        setOpenDropDown(null);
+  }
+
   const handleToggleDropDownMenu = (dropDownName) => {
     setOpenDropDown(openDropDownMenu === dropDownName ? null : dropDownName);
   };
 
-  const handleMouseLeave = () => {
-    setOpenDropDown(null);
-  };
+  // const handleMouseLeave = () => {
+  //   setOpenDropDown(null);
+  // };
 
   const handleSidebarToggle = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -93,26 +105,29 @@ const Navbar = () => {
             <ul
               onMouseLeave={() => {
                 setIsMenuOpen(false);
+                setOpenDropDown(null)
               }}
-              className={`flex xl:gap-12 lg:gap-10 md:gap-4 md:text-sm lg:text-base md:items-center flex-col md:flex-row md:static md:flex absolute items-start gap-6 right-[10%] top-14 bg-blue-200 md:bg-inherit px-16 py-2 md:px-0 md:py-0 rounded-lg opacity-80 md:opacity-100 ${
+              className={`flex xl:gap-12 lg:gap-10 md:gap-4 md:text-sm lg:text-base md:items-center flex-col md:flex-row md:static md:flex absolute items-start gap-6 right-[10%] top-14 bg-gray-200 md:bg-inherit px-16 py-2 md:px-0 md:py-0 rounded-lg opacity-80 md:opacity-100 ${
                 isMenuOpen ? "" : "hidden "
               }`}>
               {menuLinks.map((option) => {
                 const isDropDownOpen = openDropDownMenu === option.title;
-                return (
+                return ( 
                   <li
                     key={option.path}
-                    className="center justify-between w-full gap-1 md:gap-2 md:font-medium"
-                    onMouseLeave={handleMouseLeave}>
-                    <Link smooth to={option.path}>
+                    onClick={() => handleClickOnMainMenuOptionsToCloseTheMenu(option)} 
+                    className="center justify-between w-full gap-1 md:gap-2 md:font-medium hover:bg-gray-300 hover:md:bg-transparent px-2 border-b-2 md:border-none rounded-md hover:border-gray-400 hover:text-gray-500"
+                    // onMouseLeave={handleMouseLeave}
+                    >
+                    <Link onClick={handleClickOnSubMenuOptionsToCloseTheMenu} smooth to={option.path}>
                       {option.title}
                     </Link>
                     {option.dropDownIcon && (
                       <div
                         onClick={() => handleToggleDropDownMenu(option.title)}
-                        onMouseOver={() =>
-                          handleToggleDropDownMenu(option.title)
-                        }
+                        // onMouseOver={() =>
+                        //   handleToggleDropDownMenu(option.title)
+                        // }
                         className="cursor-pointer size-full rounded-b-[100%] rounded-sm animate center justify-center hover:bg-white w-4"
                         title="view options">
                         {isDropDownOpen ? (
@@ -127,12 +142,13 @@ const Navbar = () => {
                       <motion.ul
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        onMouseLeave={handleMouseLeave}
+                        // onMouseLeave={handleMouseLeave}
                         className="absolute md:top-11 top-28  -left-32 md:left-auto bg-gray-100 shadow-lg rounded-md  py-2 px-2 opacity-80 font-normal">
                         {productsLinks.map((product) => (
                           <motion.li
                             whileHover={{ scale: 1.02 }}
                             key={product.path}
+                            onClick={handleClickOnSubMenuOptionsToCloseTheMenu}
                             className="px-4 py-2 hover:bg-gray-200 rounded-md">
                             <Link smooth to={product.path}>{product.title}</Link>
                           </motion.li>
@@ -144,12 +160,13 @@ const Navbar = () => {
                       <motion.ul
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        onMouseLeave={handleMouseLeave}
+                        // onMouseLeave={handleMouseLeave}
                         className="absolute md:top-12 top-40 -left-32 md:left-auto bg-gray-100 shadow-lg rounded-md  py-2 px-2 opacity-80 w-44 font-normal">
                         {servicesLinks.map((service) => (
                           <motion.li
                             whileHover={{ scale: 1.02 }}
                             key={service.path}
+                            onClick={handleClickOnSubMenuOptionsToCloseTheMenu}
                             className="px-4 py-2 hover:bg-gray-200 rounded-md">
                             <Link smooth to={service.path}>{service.title}</Link>
                           </motion.li>
@@ -161,7 +178,7 @@ const Navbar = () => {
                       <motion.ul
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        onMouseLeave={handleMouseLeave}
+                        // onMouseLeave={handleMouseLeave}
                         className="absolute md:top-12 top-40 -left-32 md:left-auto bg-gray-100 shadow-lg rounded-md  py-2 px-2 opacity-80 w-44 font-normal">
                         {aboutLinks.map((about) => (
                           <motion.li
