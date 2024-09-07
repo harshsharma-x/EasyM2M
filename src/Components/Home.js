@@ -8,13 +8,16 @@ import Footer from "./Footer";
 import Recognition from "./Recognition";
 import PageWithScrollAnimation from "./PageWithScrollAnimation";
 import Products from "./Products";
-
+import Worker from './Worker';
 const Home = () => {
   return (
     <div id="/">
       <Hero />
       <div id="aboutAtLanding" className="scroll-m-16">
         <AboutAtLanding />
+      </div>
+      <div id="worker" className="scroll-m-16">
+        <Worker />
       </div>
       <div id="products" className="scroll-m-16">
         <Products />
