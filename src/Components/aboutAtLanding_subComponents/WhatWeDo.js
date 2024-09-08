@@ -31,7 +31,7 @@ const WhatWeDo = () => {
                   market.
                   <div className="leading-6">
                     <a
-                      href="/products"
+                      href="/allProducts"
                       className=""
                       title="Go to product section">
                       Know more ...
@@ -89,7 +89,7 @@ const WhatWeDo = () => {
 
                 <div className="leading-6">
                   <a
-                    href="/products"
+                    href="/allProducts"
                     className=""
                     title="Go to product section">
                     Know more ...
@@ -141,7 +141,7 @@ const WhatWeDo = () => {
 
                 <div className="leading-6">
                   <a
-                    href="/products"
+                    href="/allProducts"
                     className=""
                     title="Go to product section">
                     Know more ...
