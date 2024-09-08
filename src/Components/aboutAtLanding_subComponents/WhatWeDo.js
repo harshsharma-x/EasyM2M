@@ -9,7 +9,7 @@ const WhatWeDo = () => {
     <div className="mx-auto px-8 center flex-col gap-12">
       <div className="1st center justify-around w-full gap-12">
         <motion.div
-          initial={{ opacity: 0, x: -250 }}
+          initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
@@ -44,7 +44,7 @@ const WhatWeDo = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 250 }}
+          initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
@@ -62,7 +62,7 @@ const WhatWeDo = () => {
       <div className="center justify-center border  border-transparent rounded w-[50%] shadow-outline-light hover:shadow-outline-focus"></div>
       <div className="2nd center justify-around  flex-row-reverse w-full  gap-12">
         <motion.div
-          initial={{ opacity: 0, x: 250 }}
+          initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
@@ -101,7 +101,7 @@ const WhatWeDo = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: -250 }}
+          initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
@@ -119,7 +119,7 @@ const WhatWeDo = () => {
       <div className="center justify-center border  border-transparent rounded w-[50%] shadow-outline-light hover:shadow-outline-focus"></div>
       <div className="3rd center justify-around w-full gap-12">
         <motion.div
-          initial={{ opacity: 0, x: -250 }}
+          initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
@@ -152,7 +152,7 @@ const WhatWeDo = () => {
           </div>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 250 }}
+          initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}

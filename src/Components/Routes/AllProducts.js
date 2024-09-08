@@ -2,7 +2,7 @@ import React from "react";
 
 const AllProducts = () => {
   return (
-    <div className="solutions-container">
+    <div className="solutions-container py-12 pt-20">
       {/* Hero Section */}
       <section className="hero bg-blue-600 text-white py-14 md:py-20 px-6 text-center">
         <h1 className="text-4xl font-bold mb-4">Wireless Network Communication System</h1>

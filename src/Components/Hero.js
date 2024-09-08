@@ -18,9 +18,11 @@ const Hero = () => {
   });
 
   return (
-    <div className="h-screen w-full">
-      <div className=" absolute inset-0 overflow-hidden">
-        <div className="flex justify-around items-center h-screen relative gradient_heroBg">
+    <div className="h-screen bg-red-400">
+      <div className=" overflow-hidden">
+   
+        <div className="flex justify-around items-center h-screen relative gradient_heroBg ">
+       
           {!isVideoLoaded && <div className="loader absolute top-[70%]"></div>}
           <video
             autoPlay
