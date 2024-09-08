@@ -1,47 +1,118 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import heroBg from "../assets/vid/mining.mp4"; // Import the video
-
+import { motion, AnimatePresence } from "framer-motion";
 const Hero = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [textChange, setTextChange] = useState(1);
 
   // Function to handle when video has loaded
   const handleVideoLoaded = () => {
     setIsVideoLoaded(true);
   };
 
-  return (
-    <div className="overflow-hidden h-screen w-full">
-      {/* Container for video and overlay */}
-      <div className="absolute inset-0">
-        <div className="flex justify-center items-center h-screen relative">
-          
-          {/* Loader shown until video is fully loaded */}
-          {!isVideoLoaded && (
-            <div className="loader absolute top-[50%]"></div>
-          )}
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTextChange((prev) => prev + 1);
+    }, 5000);
+    return () => clearInterval(interval);
+  });
 
-          {/* Background Video */}
+  return (
+    <div className="h-screen w-full">
+      <div className=" absolute inset-0 overflow-hidden">
+        <div className="flex justify-around items-center h-screen relative gradient_heroBg">
+          {!isVideoLoaded && <div className="loader absolute top-[70%]"></div>}
           <video
             autoPlay
             muted
             loop
-            src={heroBg} // Background video path
+            src={heroBg}
             type="video/mp4"
             className="object-cover w-full h-full"
-            onLoadedData={handleVideoLoaded} // Fires when video is loaded
+            onLoadedData={handleVideoLoaded}
           />
+          <div className="absolute center justify-between flex-col gap-12 h-[25%]">
+            <div className="text-3xl md:text-5xl lg:text-7xl  px-2 text-gray-200 font-semibold ">
+              <AnimatePresence mode="wait">
+                {textChange % 2 === 0 ? (
+                  <motion.div key="text-container-1" className="inline-block">
+                    <motion.div
+                      key="revolutionizing"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className="inline-block px">
+                      Revolutionizing
+                    </motion.div>
 
-          {/* Text overlay */}
-          <div className="absolute text-center ">
-            <h1 className="text-4xl md:text-6xl font-bold text-white">
-              Revolutionizing Communication in Mining
-            </h1>
-            <p className="mt-4 text-xl md:text-2xl text-gray-200">
-              Stay Connected with Our Smart Networking Devices
+                    <motion.div
+                      key="iot-powered"
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ duration: 0.3 }}
+                      className="text-lime-200  inline-block px-2">
+                      {" "}
+                      IoT-<span className="text-gray-200">
+                        Powered
+                      </span> Safety{" "}
+                    </motion.div>
+                    <motion.div
+                      key="elderly"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className="inline-block px-2">
+                      {" "}
+                      for Elderly{" "}
+                    </motion.div>
+                  </motion.div>
+                ) : (
+                  <motion.div key="text-container-2" className="inline-block">
+                    <motion.div
+                      key="revolutionizing-iot"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className="inline-block px">
+                      Revolutionizing
+                    </motion.div>
+
+                    <motion.div
+                      key="communication"
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ duration: 0.3 }}
+                      className="text-black  inline-block px-2">
+                      {" "}
+                      Communication{" "}
+                    </motion.div>
+                    <motion.div
+                      key="communication"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className=" inline-block px-2">
+                      {" "}
+                      in Mining{" "}
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            <p className="text-base md:text-xl lg:text-2xl text-gray-100 px-2">
+              Stay Connected with Our{" "}
+              <span className="text-gray-800">Smart Networking Devices</span>{" "}
             </p>
-            {/* <button className="mt-6 px-8 py-3 bg-yellow-500 text-black rounded-lg">
-              Learn More
-            </button> */}
+            {/* <div>
+        IoT-Powered <span className="text-lime-400">Safety</span> , Anytime,
+        Anywhere.
+        </div> */}
           </div>
         </div>
       </div>

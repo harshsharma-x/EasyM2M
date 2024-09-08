@@ -189,7 +189,7 @@ const Navbar = () => {
                       <motion.ul
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        // onMouseLeave={handleMouseLeave}
+                        onClick={handleClickOnSubMenuOptionsToCloseTheMenu}
                         className="absolute md:top-12 top-40 -left-32 md:left-auto bg-gray-100 shadow-lg rounded-md  py-2 px-2 opacity-80 w-44 font-normal">
                         {aboutLinks.map((about) => (
                           <Link key={about.path} to={about.path}>
