@@ -1,12 +1,12 @@
 // src/components/CommunicationDevice.js
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import bgVideo from '../assets/vid/worker.mp4'; // Import the video
+import React from "react";
+import { motion } from "framer-motion";
+import bgVideo from "../assets/vid/worker.mp4"; // Import the video
 
 const CommunicationDevice = () => {
   return (
-    <div className="bg-gray-900 text-white">
+    <div className="bg-gray-900 text-white group">
       {/* Background Video Section */}
       <div className="relative h-screen w-full flex items-center justify-center">
         <video
@@ -23,13 +23,16 @@ const CommunicationDevice = () => {
             className="lg:w-1/2 space-y-6 lg:text-right"
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
+            transition={{ duration: 1 }}>
             <h1 className="text-4xl lg:text-6xl font-bold">
-              Seamless Communication for Miners
+              Seamless{" "}
+              <span className="text-lime-400 group-hover:text-blue-400/95 animate">
+                Communication
+              </span>{" "}
+              for Miners
             </h1>
-            <ul className=" space-y-4 text-lg ml-6 lg:ml-0 lg:mr-6">
-              <li>Real-Time Alerts and Emergency Assistance</li>
+            <ul className=" space-y-4 text-lg ml-6 lg:ml-0 lg:mr-6 list-disc list-inside">
+              <li className="">Real-Time Alerts and Emergency Assistance</li>
               <li>Reliable Connectivity, Even in Remote Depths</li>
               <li>Wearable and Easy-to-Use Technology</li>
               <li>Enhanced Safety and Quick Response</li>
