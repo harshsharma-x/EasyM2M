@@ -92,7 +92,7 @@ const Navbar = () => {
   }, [isMenuOpen, isSidebarOpen]);
 
   return (
-    <header className="sticky top-0 z-30 w-full bg-white/30 shadow-md ">
+    <header className="fixed top-0 z-30 w-full bg-white/30 shadow-md ">
       <div ref={menuRef} className="relative ">
         <nav className="center justify-between p-4 mx-auto w-full max-w-7xl">
           {/* Logo */}
