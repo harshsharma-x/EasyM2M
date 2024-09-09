@@ -6,8 +6,16 @@ import Home from "./Components/Home";
 import About from "./Components/Routes/About";
 import AllProducts from "./Components/Routes/AllProducts";
 import Footer from "./Components/Footer";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function App() {
+ const {pathname} = useLocation()
+
+ useEffect(()=>{
+  window.scrollTo(0,0);
+ },[pathname])
+
   return (
     <>
       <Navbar />
@@ -16,7 +24,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/allProducts" element={<AllProducts />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }
