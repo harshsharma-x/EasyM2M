@@ -359,13 +359,13 @@ const Contact = () => {
                     // }
                     // transition={{ duration: 0.5 }}
                     htmlFor="phoneNumber"
-                    className="absolute w-fit top-[-46%]  left-0 opacity-70">
+                    className="absolute w-fit top-[-46%]  left-0 opacity-60">
                     Phone
                   </motion.label>
                 </motion.div>
               </div>
 
-              <div className="w-full lg:w-1/2 p-6 center flex-col gap-4">
+              <div className="w-full lg:w-1/2 p-6 pt-0 md:pt-6 center flex-col gap-4">
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}

@@ -35,7 +35,7 @@ const Founder = () => {
       {founders.map((founder, index) => (
         <div
           key={index}
-          className="p-6 my-4 w-80 md:h-[450px] border border-gray-200 rounded-lg transform hover:scale-105 hover:z-10  transition-transform duration-300 ease-in-out flex flex-col gap-2 lg:gap-3 overflow-hidden group hover_gradient">
+          className="p-6 my-4 w-80  min-h-[435px] md:min-h-[450px] border border-gray-200 rounded-lg transform hover:scale-105 hover:z-10  transition-transform duration-300 ease-in-out flex flex-col gap-2 lg:gap-3 overflow-hidden group hover_gradient">
           <img
             src={founder.image}
             alt={founder.name}

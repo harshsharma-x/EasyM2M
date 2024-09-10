@@ -31,7 +31,7 @@ const CommunicationDevice = () => {
               </span>{" "}
               for Miners
             </h1>
-            <ul className=" space-y-4 text-lg ml-6 lg:ml-0 lg:mr-6 list-disc list-inside">
+            <ul className=" space-y-4 text-lg ml-6 lg:ml-0 lg:mr-6 list-disc lg:list-inside">
               <li className="">Real-Time Alerts and Emergency Assistance</li>
               <li>Reliable Connectivity, Even in Remote Depths</li>
               <li>Wearable and Easy-to-Use Technology</li>
