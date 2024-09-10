@@ -7,6 +7,8 @@ const Navbar = () => {
   const [openDropDownMenu, setOpenDropDown] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const menuRef = useRef(null);
+const [prevScrollPosition, setPrevScrollPosition] = useState(0);
+const [isNavbarFull, setIsNavbarFull] = useState(false)
 
   const menuLinks = [
     { title: "Home", path: "/#" },
@@ -79,6 +81,24 @@ const Navbar = () => {
     }
   };
 
+  // navbar up and down on scroll
+useEffect(()=>{
+  const handleScroll=()=>{
+    const currentScrollPosition = window.scrollY;
+    if(prevScrollPosition < currentScrollPosition) {
+      setIsNavbarFull(false);
+    }else{
+      setIsNavbarFull(true);
+    }
+
+    setPrevScrollPosition(currentScrollPosition);
+  }
+  window.addEventListener('scroll', handleScroll);
+  return()=>{
+    window.removeEventListener('scroll', handleScroll)
+  }
+},[prevScrollPosition]) 
+  
   useEffect(() => {
     const handleOutsideClick = (e) => handleClickOutside(e);
 
@@ -92,7 +112,9 @@ const Navbar = () => {
   }, [isMenuOpen, isSidebarOpen]);
 
   return (
-    <header className="fixed top-0 z-30 w-full bg-white/30 shadow-md ">
+    <div className={`fixed top-0 z-30 w-full bg-white/20 shadow-md  animate ${
+      isNavbarFull  ? "translate-y-0 backdrop-blur-[1px]" : "-translate-y-3 backdrop-blur-sm"
+    }`}>
       <div ref={menuRef} className="relative ">
         <nav className="center justify-between p-4 mx-auto w-full max-w-7xl">
           {/* Logo */}
@@ -252,7 +274,7 @@ const Navbar = () => {
           </motion.div>
         </nav>
       </div>
-    </header>
+    </div>
   );
 };
 
