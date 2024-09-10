@@ -33,53 +33,71 @@ const Hero = () => {
             className="object-cover w-full h-full"
             onCanPlayThrough={handleVideoLoaded}
           />
-          <div className="absolute center justify-between flex-col gap-12 h-[25%]">
-            <div className="text-3xl md:text-5xl lg:text-7xl  px-2 text-gray-200 font-semibold ">
+          <div className="absolute center justify-between flex-col gap-12 lg:gap-20 xl:gap-24  h-[20%] lg:h-[30%] 2xl:h-[35%]">
+            <div className="text-3xl md:text-5xl lg:text-7xl  px-2 text-gray-200 font-bold ">
               <AnimatePresence mode="wait">
                 {textChange % 2 === 0 ? (
                   <motion.div key="text-container-1" className="inline-block">
                     <motion.div
-                      key="revolutionizing"
+                      key="empowering"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.3 }}
-                      className="inline-block px">
-                      Revolutionizing
+                      className="inline-block pl-2 xl:pl-0">
+                      Empowering
                     </motion.div>
 
                     <motion.div
-                      key="iot-powered"
+                      key="elderly"
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 20 }}
                       transition={{ duration: 0.3 }}
                       className="text-lime-200  inline-block px-2">
                       {" "}
-                      IoT-<span className="text-gray-200">
-                        Powered
-                      </span> Safety{" "}
+                      Elderly Safety{" "}
                     </motion.div>
                     <motion.div
-                      key="elderly"
+                      key="with"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.3 }}
                       className="inline-block px-2">
                       {" "}
-                      for Elderly{" "}
+                      with {" "}
+                    </motion.div>
+                    <motion.div
+                      key="iot-driven"
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ duration: 0.3 }}
+                      className="inline-block px-2">
+                      {" "}
+                       <span className="text-lime-200 ">IoT</span>-driven{" "}
+                    </motion.div>
+                    <motion.div
+                      key="solution"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className="inline-block px-2">
+                      {" "}
+                      Solutions{" "}
                     </motion.div>
                   </motion.div>
                 ) : (
                   <motion.div key="text-container-2" className="inline-block">
                     <motion.div
-                      key="revolutionizing-iot"
+                      key="revolutionizing-connections"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.3 }}
-                      className="inline-block px">
+                      className="inline-block pl-2 xl:pl-0">
                       Revolutionizing
                     </motion.div>
 
@@ -94,7 +112,7 @@ const Hero = () => {
                       Communication{" "}
                     </motion.div>
                     <motion.div
-                      key="communication"
+                      key="in-mining"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
@@ -107,9 +125,9 @@ const Hero = () => {
                 )}
               </AnimatePresence>
             </div>
-            <p className="text-base md:text-xl lg:text-2xl text-gray-100 px-2">
-              Stay Connected with Our{" "}
-              <span className="text-gray-800">Smart Networking Devices</span>{" "}
+            <p className="text-base md:text-xl lg:text-2xl text-gray-200 px-2 font-medium">
+              Stay Connected with Our{" "} 
+              <span className="text-lime-400 bg-black/20 px-1 py-1 rounded ">Smart Networking Devices</span>{" "}
             </p>
             {/* <div>
         IoT-Powered <span className="text-lime-400">Safety</span> , Anytime,
