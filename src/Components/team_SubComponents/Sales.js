@@ -7,9 +7,9 @@ const Sales = () => {
       
      <div className='w-[700px] mx-auto md:mx-0 text-center'>
               <img src={SaleBg} alt="Logo" className="w-full h-full" />
-              <div className='font-bold te'>
+              <div className='font-bold '>
               <p>
-              2 Channel Sales Partner in INDIA
+              Two Channel Sales Partner in INDIA
               </p>
             </div>
             </div>
