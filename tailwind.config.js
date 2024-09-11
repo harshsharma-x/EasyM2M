@@ -57,6 +57,10 @@ module.exports = {
         'outline-light-red': '0px 0px 10px 1px #EB3678', // Custom box shadow for outline
         'outline-focus-red': '0px 0px 10px 1px #F5004F', // Custom box shadow for focus state (hover ,red)
       },
+      screens: {
+        '3xl': '1920px', 
+        '4xl': '2560px', 
+      },
     },
   },
   plugins: [],
