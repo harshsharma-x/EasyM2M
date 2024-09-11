@@ -23,7 +23,7 @@ const Hero = () => {
    
         <div className="flex justify-around items-center h-screen relative gradient_heroBg pointer-events-none">
        
-          {!isVideoLoaded && <div className="loader absolute top-[70%]"></div>}
+          {!isVideoLoaded && <div className="loader absolute top-[70%] 2xl:top-[75%] text-sm lg:text-xl"></div>}
           <video
             autoPlay
             muted
@@ -33,8 +33,8 @@ const Hero = () => {
             className="object-cover w-full h-full"
             onCanPlayThrough={handleVideoLoaded}
           />
-          <div className="absolute center justify-between flex-col gap-12 lg:gap-20 xl:gap-24  h-[20%] lg:h-[30%] 2xl:h-[35%]">
-            <div className="text-3xl md:text-5xl lg:text-7xl  px-2 text-gray-200 font-bold ">
+          <div className="absolute center justify-between flex-col gap-12 lg:gap-20 xl:gap-24  h-[20%] lg:h-[30%] 2xl:h-[37%] 3xl:h-[35%]">
+            <div className="text-3xl md:text-5xl lg:text-7xl px-2 text-gray-200 font-bold ">
               <AnimatePresence mode="wait">
                 {textChange % 2 === 0 ? (
                   <motion.div key="text-container-1" className="inline-block">

@@ -55,12 +55,12 @@ const AboutAtLanding = () => {
             <span className="text-lime-500">Life</span> with{" "}
             <span className=" text-lime-500">SmartKavach"</span>
           </div>
-          <div className="mt-12 center justify-between  gap-3 md:gap-6 lg:gap-16  flex-wrap ">
+          <div className="mt-12 center justify-between gap-3 md:gap-6 lg:gap-16  flex-wrap space-y-4">
             {aboutCardData.map((card, index) => {
               return (
                 <div
                   key={index}
-                  className={`shadow-outline-light  rounded-md hover:rounded-3xl size-44 md:size-60 lg:size-72 hover:scale-105 hover:translate-y-[-13px] lg:hover:translate-y-[-30px] animate hover:z-10 relative overflow-hidden group  ${
+                  className={`shadow-outline-light  rounded-md hover:rounded-3xl size-44 md:size-60 lg:size-72 hover:scale-105 hover:translate-y-[-13px] lg:hover:translate-y-[-30px] animate hover:z-10 relative overflow-hidden group ${
                     index % 2 === 0
                       ? "md:translate-y-5  lg:translate-y-12 "
                       : ""
@@ -84,7 +84,7 @@ const AboutAtLanding = () => {
                           className={`fa-solid fa-chevron-down block text-center group-hover:hidden`}></i>
                       </div>
                       <div
-                        className={`text-xs font-medium lg:text-base text-slate-800`}>
+                        className={`text-[8px] md:text-xs lg:text-base font-medium  text-slate-800`}>
                         {card.description}
                         <div className="w-12 text-right absolute bottom-5 right-5"></div>
                       </div>
