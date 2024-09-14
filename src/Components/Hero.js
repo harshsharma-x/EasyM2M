@@ -20,10 +20,10 @@ const Hero = () => {
   return (
     <div className="h-screen bg-red-400">
       <div className=" overflow-hidden">
-   
         <div className="flex justify-around items-center h-screen relative gradient_heroBg pointer-events-none">
-       
-          {!isVideoLoaded && <div className="loader absolute top-[70%] 2xl:top-[75%] text-sm lg:text-xl"></div>}
+          {!isVideoLoaded && (
+            <div className="loader absolute top-[70%] 2xl:top-[75%] text-sm lg:text-xl"></div>
+          )}
           <video
             autoPlay
             muted
@@ -66,7 +66,7 @@ const Hero = () => {
                       transition={{ duration: 0.3 }}
                       className="inline-block px-2">
                       {" "}
-                      with {" "}
+                      with{" "}
                     </motion.div>
                     <motion.div
                       key="iot-driven"
@@ -76,7 +76,7 @@ const Hero = () => {
                       transition={{ duration: 0.3 }}
                       className="inline-block px-2">
                       {" "}
-                       <span className="text-lime-200 ">IoT</span>-driven{" "}
+                      <span className="text-lime-200 ">IoT</span>-driven{" "}
                     </motion.div>
                     <motion.div
                       key="solution"
@@ -126,8 +126,10 @@ const Hero = () => {
               </AnimatePresence>
             </div>
             <p className="text-base md:text-xl lg:text-2xl text-gray-200 px-2 font-medium">
-              Stay Connected with Our{" "} 
-              <span className="text-lime-400 bg-black/20 px-1 py-1 rounded ">Smart Networking Devices</span>{" "}
+              Stay Connected with Our{" "}
+              <span className="text-lime-400 bg-black/20 px-1 py-1 rounded ">
+                Smart Networking Devices
+              </span>{" "}
             </p>
             {/* <div>
         IoT-Powered <span className="text-lime-400">Safety</span> , Anytime,
