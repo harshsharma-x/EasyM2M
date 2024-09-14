@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const menuRef = useRef(null);
 const [prevScrollPosition, setPrevScrollPosition] = useState(0);
-const [isNavbarFull, setIsNavbarFull] = useState(false)
+const [isNavbarFull, setIsNavbarFull] = useState(true) 
 
   const menuLinks = [
     { title: "Home", path: "/#" },
