@@ -18,9 +18,9 @@ const Hero = () => {
   });
 
   return (
-    <div className="h-screen bg-red-400">
-      <div className=" overflow-hidden">
-        <div className="flex justify-around items-center h-screen relative gradient_heroBg pointer-events-none">
+    <div className="h-screen">
+      <div className="gradient_heroBg ">
+        <div className="flex justify-around items-center h-screen relative pointer-events-none">
           {!isVideoLoaded && (
             <div className="loader absolute top-[70%] 2xl:top-[75%] text-sm lg:text-xl"></div>
           )}

@@ -341,7 +341,7 @@
   transition: background-size 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
     /* transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); */
 }
-
+.gradient_heroBg:hover,
 .gradient_aboutBg:hover,
 .gradient_recognitionBg:hover,
 .gradient_teamBg:hover,
